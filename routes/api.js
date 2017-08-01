@@ -14,6 +14,8 @@ router.get('/student', function(req, res, next) {
             });
         }
     });
+
+    
 });
 
 router.get('/similar', function(req, res) {

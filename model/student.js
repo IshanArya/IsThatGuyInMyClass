@@ -11,9 +11,9 @@ var Schema = mongoose.Schema;
 */
 
 var studentSchema = new Schema({
-    id: String,
-    name: String,
-    grade: Number,
+    username: String,
+    password: String,
+    name: String,    
     classes: []
 });
 
