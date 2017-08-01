@@ -5,8 +5,17 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+// var nconf = require('nconf');
+// nconf.file('config.json');
+
+var mongoose = require('mongoose');
+var db = mongoose.connect('mongodb://localhost/local', {
+    useMongoClient: true
+});
+// var db = mongoose.connect('mongodb://' + nconf.get('db:username') + ':' + nconf.get('db:password') + '@localhost/local');
+
 var index = require('./routes/index');
-var users = require('./routes/users');
+var api = require('./routes/api');
 
 var app = express();
 
@@ -43,4 +52,20 @@ app.use(function (err, req, res, next) {
     res.render('error');
 });
 
-module.exports = app;
+
+var http = require('http');
+var port = parseInt(process.env.PORT || '3000');
+app.set('port', port);
+var server = http.createServer(app);
+server.listen(port);
+
+var shouldExit = false;
+process.on('SIGINT', function() {
+    if (shouldExit) {
+        mongoose.disconnect();
+        process.exit();
+    } else {
+        console.log('Press ^C again to exit');
+        shouldExit = true;
+    }
+});
