@@ -3,6 +3,11 @@ var mongoose = require('mongoose');
 var Student = require('../model/student');
 var router = express.Router();
 
+
+router.post('/authenticate', function(req, res) {
+
+});
+
 router.get('/student', function(req, res, next) {
     Student.find(function(err, students) {
         if (err) {
