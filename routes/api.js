@@ -10,21 +10,47 @@ var secret = config.secret;
 
 
 router.post('/register', function(req, res) {
-    var tempUser = new Student({
-        email: req.body.email,
-        password: req.body.password,
-        name: req.body.name,
-        verificationToken: getRandomId(),
-        verified: false
+    Student.findOne({
+        email: req.body.email
+    }, function(err, user) {
+        if(err) {
+            res.json({
+                success: false,
+                message: err.message
+            });
+        } else {
+            if(user) {
+                res.json({
+                    success: false,
+                    message: "Email already in use."
+                });
+            } else {
+                var tempUser = new Student({
+                    email: req.body.email,
+                    password: req.body.password,
+                    name: req.body.name,
+                    verificationToken: getRandomId(),
+                    verified: false
+                });
+
+                tempUser.save(function(err) {
+                    if(err) {
+                        res.json({
+                            success: false,
+                            message: err.message
+                        });
+                    }
+
+                    res.json({
+                        success: true,
+                        message: "Registration successful. Check email."
+                    });
+                });
+            }
+        }
     });
 
-    tempUser.save(function(err) {
-        if(err) {
-            throw err;
-        }
-
-        res.redirect('/login');
-    })
+    
 });
 router.post('/authenticate', function(req, res) {
     Student.findOne({
