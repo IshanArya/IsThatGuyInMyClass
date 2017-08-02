@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var 
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -11,7 +12,7 @@ router.get('/login', function(req, res) {
 });
 
 router.get('/register', function(req, res) {
-
+	res.render('register');
 });
 
 module.exports = router;

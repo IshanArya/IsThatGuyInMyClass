@@ -24,7 +24,7 @@ router.post('/register', function(req, res) {
         }
 
         res.redirect('/login');
-    })
+    });
 });
 router.post('/authenticate', function(req, res) {
     Student.findOne({
