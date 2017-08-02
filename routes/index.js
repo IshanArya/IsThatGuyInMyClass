@@ -1,8 +1,5 @@
 var express = require('express');
-var jsonwebtoken = require('jsonwebtoken');
 var router = express.Router();
-
-var config = require('../config');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -14,7 +11,7 @@ router.get('/login', function(req, res) {
 });
 
 router.get('/register', function(req, res) {
-	
+
 });
 
 module.exports = router;
