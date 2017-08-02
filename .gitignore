@@ -3,3 +3,6 @@ node_modules/
 
 # Ignore directory used for MongoDB storage
 data/
+
+# Mac files
+*.DS_Store
