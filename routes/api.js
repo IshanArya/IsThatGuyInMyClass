@@ -1,12 +1,12 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var Student = require('../model/student');
-var config = require('../config')
+var config = require('../config');
 var jwt = require('jsonwebtoken');
 var router = express.Router();
 
 
-var secret = config.secret;
+var secret = config.mongodb.secret;
 
 
 router.post('/register', function(req, res) {
@@ -22,7 +22,7 @@ router.post('/register', function(req, res) {
             if(user) {
                 res.json({
                     success: false,
-                    message: "Email already in use."
+                    message: config.errorMessages.emailInUse
                 });
             } else {
                 var tempUser = new Student({
@@ -56,28 +56,36 @@ router.post('/authenticate', function(req, res) {
     Student.findOne({
         email: req.body.email
     }, function(err, user) {
-        if(!user) {
+
+        if(err) {
             res.json({
                 success: false,
-                message: "Authentication failed. User not found."
+                message: err.message
             });
-        } else if(user) {
-            if(user.password != req.body.password) {
+        } else {
+            if(!user) {
                 res.json({
                     success: false,
-                    message: "Authentication failed. Wrong password."
+                    message: config.errorMessages.noUser
                 });
-            } else {
-                var token = jwt.sign(user, secret, {
-                    expiresInMinutes: 1440
-                });
+            } else if(user) {
+                if(user.password != req.body.password) {
+                    res.json({
+                        success: false,
+                        message: config.errorMessages.wrongPassword
+                    });
+                } else {
+                    var token = jwt.sign(user, secret, {
+                        expiresInMinutes: "24h"
+                    });
 
-                res.json({
-                    success: true,
-                    message: "Enjoy token!",
-                    token: token
-                });
+                    res.json({
+                        success: true,
+                        message: "Enjoy token!",
+                        token: token
+                    });
 
+                }
             }
         }
     });
@@ -228,25 +236,6 @@ router.get('/create', function(req, res) {
 */
 
 //this has to be at the bottom
-
-
-router.use(function(req, res, next) {
-    var token = req.body.token || req.query.token || req.headers['x-access-token'];
-
-    if(token) {
-        jwt.verify(token, secret, function(err, decoded) {
-            if(err) {
-                return res.json({
-                    success: false,
-                    message: "Failed to authenticate token."
-                });
-            } else {
-                req.decoded = decoded;
-                next();
-            }
-        });
-    }
-});
 
 router.use(function(req, res) {
     res.json({

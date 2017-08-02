@@ -1,4 +1,12 @@
 module.exports = {
-	secret: "K8cHm968ktFAZ",
-	database: "mongodb://localhost/local"
+	"mongodb": {
+		"secret": "K8cHm968ktFAZ",
+		"database": "mongodb://localhost/local"
+	},
+	"errorMessages": {
+		"emailInUse": "Email already in use.",
+		"noUser": "Authentication failed. User not found.",
+		"wrongPassword": "Authentication failed. Wrong password.",
+		
+	}
 }
