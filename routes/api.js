@@ -201,7 +201,6 @@ router.get('/create', function(req, res) {
 });
 */
 
-//this has to be at the bottom
 
 
 router.use(function(req, res, next) {
