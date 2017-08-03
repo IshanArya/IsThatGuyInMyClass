@@ -1,5 +1,7 @@
 var express = require('express');
+var jwt = require('jsonwebtoken');
 var config = require('../config');
+var path = require('path');
 var router = express.Router();
 
 var secret = config.mongodb.secret;
@@ -10,11 +12,15 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/login', function(req, res) {
-	res.render('login');
+	res.sendFile(path.join(__dirname, '..', 'public', 'login.html'));
 });
 
 router.get('/register', function(req, res) {
-	res.render('register');
+	res.sendFile(path.join(__dirname, '..', 'public', 'register.html'));
+});
+
+router.get('/registered', function(req, res) {
+	res.sendFile(path.join(__dirname, '..', 'public', 'registered.html'));
 });
 
 

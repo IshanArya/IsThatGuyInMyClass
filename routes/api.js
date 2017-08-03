@@ -29,7 +29,6 @@ router.post('/register', function(req, res) {
                     email: req.body.email,
                     password: req.body.password,
                     name: req.body.name,
-                    verificationToken: getRandomId(),
                     verified: false
                 });
 
@@ -53,6 +52,7 @@ router.post('/register', function(req, res) {
     
 });
 router.post('/authenticate', function(req, res) {
+
     Student.findOne({
         email: req.body.email
     }, function(err, user) {
@@ -112,16 +112,16 @@ router.get('/similar', function(req, res) {
     var id = req.body.id;
 });
 
-function getRandomId() {
-    var dict = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-    var num1 = Math.floor(Math.random() * 62);
-    var num2 = Math.floor(Math.random() * 62);
-    var num3 = Math.floor(Math.random() * 62);
-    var num4 = Math.floor(Math.random() * 62);
-    var num5 = Math.floor(Math.random() * 62);
-    var num6 = Math.floor(Math.random() * 62);
-    return dict[num1] + dict[num2] + dict[num3] + dict[num4] + dict[num5] + dict[num6];
-}
+// function getRandomId() {
+//     var dict = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+//     var num1 = Math.floor(Math.random() * 62);
+//     var num2 = Math.floor(Math.random() * 62);
+//     var num3 = Math.floor(Math.random() * 62);
+//     var num4 = Math.floor(Math.random() * 62);
+//     var num5 = Math.floor(Math.random() * 62);
+//     var num6 = Math.floor(Math.random() * 62);
+//     return dict[num1] + dict[num2] + dict[num3] + dict[num4] + dict[num5] + dict[num6];
+// }
 
 /*
 router.get('/create', function(req, res) {
