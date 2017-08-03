@@ -22,49 +22,6 @@ router.post('/register', function(req, res) {
             if(user) {
                 res.json({
                     success: false,
-                    message: "Email already in use."
-                });
-            } else {
-                var tempUser = new Student({
-                    email: req.body.email,
-                    password: req.body.password,
-                    name: req.body.name,
-                    verificationToken: getRandomId(),
-                    verified: false
-                });
-
-                tempUser.save(function(err) {
-                    if(err) {
-                        res.json({
-                            success: false,
-                            message: err.message
-                        });
-                    }
-
-                    res.json({
-                        success: true,
-                        message: "Registration successful. Check email."
-                    });
-                });
-            }
-        }
-    });
-
-    
-});
-router.post('/authenticate', function(req, res) {
-    Student.findOne({
-        email: req.body.email
-    }, function(err, user) {
-        if(err) {
-            res.json({
-                success: false,
-                message: err.message
-            });
-        } else {
-            if(user) {
-                res.json({
-                    success: false,
                     message: config.errorMessages.emailInUse
                 });
             } else {
@@ -91,9 +48,8 @@ router.post('/authenticate', function(req, res) {
             }
         }
     });
-
-    
 });
+
 router.post('/authenticate', function(req, res) {
 
     Student.findOne({
