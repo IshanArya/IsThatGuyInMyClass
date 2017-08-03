@@ -5,7 +5,7 @@ body {
 	padding: 0;
 	background-color: #233237 ;
 	background-size: cover;
-	color: white;
+	color: #EAC67A ;
 }
 
 label {
@@ -23,9 +23,7 @@ label {
 	/* bottom: 10px; */
 }
 
- .nav.navbar-nav.navbar-right li a {
-	color: #18121E;
-}
+
 
 .navbar-brand {
 	margin-top: -10px;
@@ -48,7 +46,16 @@ label {
 	 color: #984B43;
  }
 
- input[type = text]{
-	 background-color: #EAC67A;
-	  color: white;
+ input[type = username]{
+	 background-color: #222222;
+	  color: #EAC67A ;
  }
+
+  input[type = password]{
+	   background-color: #222222;
+	  color: #EAC67A ;
+  }
+
+  input[type = submit]{
+	  background-color: #222222;
+  }
