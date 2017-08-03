@@ -10,6 +10,7 @@ body {
 
 label {
 	font-size: 1.4em;
+	color: #984B43;
 }
 
 .eagle-image {
@@ -35,5 +36,15 @@ label {
 	border-bottom-style: dotted ;
 	border-right-style: solid ;
 	border-left-style: solid ;
-	border-color: #EAC67A transparent 
+	border-color: #EAC67A transparent;
+	color: #984B43;
 }
+
+ h5{
+	 color: #984B43;
+ }
+
+ input[type = text]{
+	 background-color: #EAC67A;
+	  color: white;
+ }
