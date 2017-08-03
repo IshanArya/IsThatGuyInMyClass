@@ -3,7 +3,7 @@ body {
 	height: 100%;
 	margin: 0;
 	padding: 0;
-	background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../imgs/bg.jpg');
+	background-color: #233237 ;
 	background-size: cover;
 	color: white;
 }
@@ -22,6 +22,18 @@ label {
 	/* bottom: 10px; */
 }
 
-.nav.navbar-nav.navbar-right li a {
-color: #18121E;
+ .nav.navbar-nav.navbar-right li a {
+	color: #18121E;
+}
+
+ h1{
+	color: #984B43;
+}
+
+ h6 {
+	border-top-style: dotted;
+	border-bottom-style: dotted ;
+	border-right-style: solid ;
+	border-left-style: solid ;
+	border-color: #EAC67A transparent 
 }
