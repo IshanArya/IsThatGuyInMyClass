@@ -1,12 +1,12 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var Student = require('../model/student');
-var config = require('../config')
+var config = require('../config');
 var jwt = require('jsonwebtoken');
 var router = express.Router();
 
 
-var secret = config.secret;
+var secret = config.mongodb.secret;
 
 
 router.post('/register', function(req, res) {
@@ -22,14 +22,13 @@ router.post('/register', function(req, res) {
             if(user) {
                 res.json({
                     success: false,
-                    message: "Email already in use."
+                    message: config.errorMessages.emailInUse
                 });
             } else {
                 var tempUser = new Student({
                     email: req.body.email,
                     password: req.body.password,
                     name: req.body.name,
-                    verificationToken: getRandomId(),
                     verified: false
                 });
 
@@ -52,30 +51,41 @@ router.post('/register', function(req, res) {
 });
 
 router.post('/authenticate', function(req, res) {
+
     Student.findOne({
         email: req.body.email
     }, function(err, user) {
-        if(!user) {
+
+        if(err) {
             res.json({
                 success: false,
-                message: "Authentication failed. User not found."
+                message: err.message
             });
         } else {
-            if(user.password !== req.body.password) {
-                res.json({
-                    success: false,
-                    message: "Authentication failed. Wrong password."
-                });
-            } else {
-                var token = jwt.sign(user, secret, {
-                    expiresInMinutes: 1440
-                });
+            if(!user) {
 
                 res.json({
-                    success: true,
-                    message: "Enjoy token!",
-                    token: token
+                    success: false,
+                    message: config.errorMessages.noUser
                 });
+            } else if(user) {
+                if(user.password != req.body.password) {
+                    res.json({
+                        success: false,
+                        message: config.errorMessages.wrongPassword
+                    });
+                } else {
+                    var token = jwt.sign(user, secret, {
+                        expiresInMinutes: "24h"
+                    });
+
+                    res.json({
+                        success: true,
+                        message: "Enjoy token!",
+                        token: token
+                    });
+
+                }
             }
         }
     });
@@ -100,35 +110,17 @@ router.get('/students', function(req, res, next) {
 //     var id = req.body.id;
 // });
 
-function getRandomId() {
-    var dict = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-    var num1 = Math.floor(Math.random() * 62);
-    var num2 = Math.floor(Math.random() * 62);
-    var num3 = Math.floor(Math.random() * 62);
-    var num4 = Math.floor(Math.random() * 62);
-    var num5 = Math.floor(Math.random() * 62);
-    var num6 = Math.floor(Math.random() * 62);
-    return dict[num1] + dict[num2] + dict[num3] + dict[num4] + dict[num5] + dict[num6];
-}
+// function getRandomId() {
+//     var dict = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+//     var num1 = Math.floor(Math.random() * 62);
+//     var num2 = Math.floor(Math.random() * 62);
+//     var num3 = Math.floor(Math.random() * 62);
+//     var num4 = Math.floor(Math.random() * 62);
+//     var num5 = Math.floor(Math.random() * 62);
+//     var num6 = Math.floor(Math.random() * 62);
+//     return dict[num1] + dict[num2] + dict[num3] + dict[num4] + dict[num5] + dict[num6];
+// }
 
-//this has to be at the bottom
-router.use(function(req, res, next) {
-    var token = req.body.token || req.query.token || req.headers['x-access-token'];
-
-    if(token) {
-        jwt.verify(token, secret, function(err, decoded) {
-            if(err) {
-                return res.json({
-                    success: false,
-                    message: "Failed to authenticate token."
-                });
-            } else {
-                req.decoded = decoded;
-                next();
-            }
-        });
-    }
-});
 
 router.use(function(req, res) {
     res.json({

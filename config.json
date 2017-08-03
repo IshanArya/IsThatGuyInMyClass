@@ -1,4 +1,11 @@
-module.exports = {
-	secret: "K8cHm968ktFAZ",
-	database: "mongodb://localhost/local"
+{
+	"mongodb": {
+		"secret": "K8cHm968ktFAZ",
+		"database": "mongodb://cindrinc:madeeasy4u@cluster0-shard-00-00-tivf2.mongodb.net:27017,cluster0-shard-00-01-tivf2.mongodb.net:27017,cluster0-shard-00-02-tivf2.mongodb.net:27017/local?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin"
+	},
+	"errorMessages": {
+		"emailInUse": "Email already in use.",
+		"noUser": "Authentication failed. User not found.",
+		"wrongPassword": "Authentication failed. Wrong password."
+	}
 }

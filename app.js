@@ -5,11 +5,13 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var config = require('./config');
+
 // var nconf = require('nconf');
 // nconf.file('config.json');
 
 var mongoose = require('mongoose');
-var db = mongoose.connect('mongodb://localhost/local', {
+var db = mongoose.connect(config.mongodb.database, {
     useMongoClient: true
 });
 // var db = mongoose.connect('mongodb://' + nconf.get('db:username') + ':' + nconf.get('db:password') + '@localhost/local');
@@ -31,8 +33,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
 app.use('/api', api);
+app.use('/', index);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -57,7 +59,9 @@ var http = require('http');
 var port = parseInt(process.env.PORT || '3000');
 app.set('port', port);
 var server = http.createServer(app);
-server.listen(port);
+server.listen(port, function() {
+    console.log("Server started on port: " + port);
+});
 
 var shouldExit = false;
 process.on('SIGINT', function() {
