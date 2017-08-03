@@ -26,6 +26,10 @@ label {
 	color: #18121E;
 }
 
+.navbar-brand {
+	margin-top: -10px;
+}
+
  h1{
 	color: #984B43;
 }
