@@ -58,4 +58,5 @@ label {
 
   input[type = submit]{
 	  background-color: #222222;
+	  color: white;
   }
