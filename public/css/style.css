@@ -1,0 +1,33 @@
+
+
+	body {
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		padding: 0;
+	}
+
+	body {
+		background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(maxresdefault.jpg);
+		background-size: cover;
+
+		color: white;
+	}
+
+	label {
+		font-size: 1.4em;
+	}
+
+	.eagle-image {
+		margin: 0 auto;
+		display: block;
+	}
+
+	.address {
+		position: absolute;
+		/* bottom: 10px; */
+	}
+
+  .nav.navbar-nav.navbar-right li a {
+    color: #18121E;
+  }

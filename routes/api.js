@@ -38,12 +38,12 @@ router.post('/register', function(req, res) {
                             success: false,
                             message: err.message
                         });
+                    } else {
+                        res.json({
+                            success: true,
+                            message: "Registration successful. Check email."
+                        });
                     }
-
-                    res.json({
-                        success: true,
-                        message: "Registration successful. Check email."
-                    });
                 });
             }
         }
@@ -63,6 +63,7 @@ router.post('/authenticate', function(req, res) {
             });
         } else {
             if(!user) {
+
                 res.json({
                     success: false,
                     message: config.errorMessages.noUser
@@ -102,8 +103,6 @@ router.get('/students', function(req, res, next) {
             });
         }
     });
-
-    
 });
 
 // router.get('/similar', function(req, res) {
