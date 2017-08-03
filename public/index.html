@@ -1,68 +1,98 @@
 <!DOCTYPE html>
-<html lang = "en" >
+<html lang="en">
 <head>
+	<title> IsThatGuyInMyClass </title>
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width = device-width, initial-scale = 1">
 
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"> -->
+	<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<style>
 
-<meta charset = "utf-8">
-<meta name = "viewport" content = "width = device-width, initial-scale = 1">
+	html, body {
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		padding: 0;
+	}
+
+	body {
+		background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(maxresdefault.jpg);
+		background-size: cover;
+
+		color: white;
+	}
+
+	label {
+		font-size: 1.4em;
+	}
+
+	.eagle-image {
+		margin: 0 auto;
+		display: block;
+	}
+
+	.address {
+		position: absolute;
+		/* bottom: 10px; */
+	}
+
+	</style>
+</head>
+<body>
+
+<div class="container-fluid">
+
+	<div class="row">
+		<div class="col-xs-offset-4 col-xs-4">
+			<h1 class="text-center">IsThatGuyInMyClass</h1>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-xs-offset-4 col-xs-4">
+			<img class="eagle-image" src="Eagle-clip-art-clipart.jpg" width="304" height="236">
+		</div>
+	</div>
+	<br>
+	<form>
+		<div class="row">
+			<div class="form-group col-xs-offset-4 col-xs-4">
+				<label for="username">Username:</label>
+				<input type="username" name="username" class="form-control" id="username" placeholder="Username">
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-xs-offset-4 col-xs-4">
+				<label for="password">Password:</label>
+				<input type="password" name="password" class="form-control" id="password" placeholder="Password">
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-xs-offset-4 col-xs-4">
+				<input class="form-control" type="checkbox">Remember me
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-xs-offset-4 col-xs-4">
+				<input type="submit" class="form-control btn btn-default">
+			</div>
+		</div>
+	</form>
 
 
-
-<title> ehsclassmatcher </title>
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-
- </head>
-
-<body background = "maxresdefault.jpg">
-
-	<div class = "container-fluid">
-		<h1> Welcome to EHS Class Matcher <small> <br> <h1 class ="small"> <s> hi guys -bharddwaj </s></br>
-		</small> </h1>
-		<img src="Eagle-clip-art-clipart.jpg" width="304" height="236">
-			<p> 
-				<form>
-					<div class = "row">
-    				<div class="form-group  col-sm-4 col-xs-4 col-md-4 col-lg-4">
-     					 <label for="username">Username:</label>
-      					<input type="username" class="form-control" id="username" placeholder="Enter username">
-    				</div>
-    				</div>
-    				<div class = "row">
-   					 <div class="form-group  col-sm-4 col-xs-4 col-md-4 col-lg-4">
-     					 <label for="pwd">Password:</label>
-      					<input type="password" class="form-control" id="pwd" placeholder="Enter password">
-    				</div>
-    				<div class = "row">
-    				<div class="checkbox">
-      					<label><input type="checkbox"> Remember me</label>
-    				</div>
-    					<button type="submit" class="btn btn-default">Submit</button>
-  				</form>
-					</div>
-
- 				<address class = "small"><small>
- 				<strong> Created by <a href="mailto:cindrinc@gmail.com" target="_blank"> Bharddwaj Vemulapalli, Ishan Arya, Tarun Boddupalli </a></strong>
- 				<br>Cindr&trade;</br>
- 				Edison, NJ
-
- 				</small>
- 				</address>		
-			</p>
+	<div class="row address">
+		<div class="col-xs-4">
+			<strong> Created by <a href="mailto:cindrinc@gmail.com" target="_blank"> Bharddwaj Vemulapalli, Ishan Arya, Tarun Boddupalli </a></strong>
+			<br>Cindr&trade;</br>
+			Edison, NJ
+		</div>		
 	</div>
 
-
-
-
-
-
-
+</div>
 
 </body>
 </html>
