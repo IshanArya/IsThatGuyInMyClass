@@ -1,6 +1,6 @@
-<style>
 
-	html, body {
+
+	body {
 		width: 100%;
 		height: 100%;
 		margin: 0;
@@ -31,5 +31,3 @@
   .nav.navbar-nav.navbar-right li a {
     color: #18121E;
   }
-
-	</style>
