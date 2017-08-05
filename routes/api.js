@@ -1,20 +1,21 @@
 var express = require('express');
 var mongoose = require('mongoose');
+var jwt = require('jsonwebtoken');
+var mailer = require('nodemailer');
 var Student = require('../model/student');
 var config = require('../config');
-var jwt = require('jsonwebtoken');
 var router = express.Router();
 
 
 var secret = config.mongodb.secret;
 
+var transporter = mailer.createTransport(config.mailerTransport);
 
 router.post('/register', function(req, res) {
-    console.log("hit");
+    var email = req.body.email;
     Student.findOne({
-        email: req.body.email
+        email: email
     }, function(err, user) {
-        console.log("hit4");
         if(err) {
             res.json({
                 success: false,
@@ -28,13 +29,12 @@ router.post('/register', function(req, res) {
                 });
             } else {
                 var tempUser = new Student({
-                    email: req.body.email,
+                    email: email,
                     password: req.body.password,
                     name: req.body.name,
                     verified: false
                 });
 
-                console.log("hit2");
                 tempUser.save(function(err) {
                     if(err) {
                         res.json({
@@ -42,10 +42,24 @@ router.post('/register', function(req, res) {
                             message: err.message
                         });
                     } else {
-                        console.log("hit3");
+
                         res.json({
                             success: true,
                             message: "Registration successful. Check email."
+                        });
+
+                        transporter.sendMail({
+                            from: '"Cindr™" <cindrinc@gmail.com>',
+                            to: email,
+                            subject: 'Is this thing on?',
+                            text: 'Testing... 1... 2... Testing! Testing!',
+                            html: '<h1>How does this render?</h1>'
+                        }, function(err, info) {
+                            if(err) {
+                                console.error(err);
+                            }
+
+                            console.log("Message sent: ", info.messageId, info.response);
                         });
                     }
                 });
