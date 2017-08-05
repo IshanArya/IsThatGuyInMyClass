@@ -6,3 +6,6 @@ data/
 
 # Mac files
 *.DS_Store
+
+# Credentials
+config.json

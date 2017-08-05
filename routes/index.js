@@ -6,24 +6,6 @@ var router = express.Router();
 
 var secret = config.mongodb.secret;
 
-/* GET home page. */
-router.get('/', function (req, res, next) {
-	res.render('index', { title: 'Express' });
-});
-
-router.get('/login', function(req, res) {
-	res.sendFile(path.join(__dirname, '..', 'public', 'login.html'));
-});
-
-router.get('/register', function(req, res) {
-	res.sendFile(path.join(__dirname, '..', 'public', 'register.html'));
-});
-
-router.get('/registered', function(req, res) {
-	res.sendFile(path.join(__dirname, '..', 'public', 'registered.html'));
-});
-
-
 router.use(function(req, res, next) {
     var token = req.body.token || req.query.token || req.headers['x-access-token'];
 
@@ -39,7 +21,7 @@ router.use(function(req, res, next) {
                 next();
             }
         });
-    }
+    } 
 });
 
 

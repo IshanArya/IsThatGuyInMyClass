@@ -3,13 +3,14 @@ body {
 	height: 100%;
 	margin: 0;
 	padding: 0;
-	background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../imgs/bg.jpg');
+	background-color: #233237 ;
 	background-size: cover;
-	color: white;
+	color: #EAC67A ;
 }
 
 label {
 	font-size: 1.4em;
+	color: #984B43;
 }
 
 .eagle-image {
@@ -22,6 +23,40 @@ label {
 	/* bottom: 10px; */
 }
 
-.nav.navbar-nav.navbar-right li a {
-color: #18121E;
+
+
+.navbar-brand {
+	margin-top: -10px;
 }
+
+ h1{
+	color: #984B43;
+}
+
+ h6 {
+	border-top-style: dotted;
+	border-bottom-style: dotted ;
+	border-right-style: solid ;
+	border-left-style: solid ;
+	border-color: #EAC67A transparent;
+	color: #984B43;
+}
+
+ h5{
+	 color: #984B43;
+ }
+
+ input[type = username]{
+	 background-color: #222222;
+	  color: #EAC67A ;
+ }
+
+  input[type = password]{
+	   background-color: #222222;
+	  color: #EAC67A ;
+  }
+
+  input[type = submit]{
+	  background-color: #222222;
+	  color: white;
+  }
