@@ -10,9 +10,11 @@ var secret = config.mongodb.secret;
 
 
 router.post('/register', function(req, res) {
+    console.log("hit");
     Student.findOne({
         email: req.body.email
     }, function(err, user) {
+        console.log("hit4");
         if(err) {
             res.json({
                 success: false,
@@ -32,6 +34,7 @@ router.post('/register', function(req, res) {
                     verified: false
                 });
 
+                console.log("hit2");
                 tempUser.save(function(err) {
                     if(err) {
                         res.json({
@@ -39,6 +42,7 @@ router.post('/register', function(req, res) {
                             message: err.message
                         });
                     } else {
+                        console.log("hit3");
                         res.json({
                             success: true,
                             message: "Registration successful. Check email."
