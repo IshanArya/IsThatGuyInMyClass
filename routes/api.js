@@ -80,7 +80,7 @@ router.post('/authenticate', function(req, res) {
                     });
                 } else {
                     var token = jwt.sign(user, secret, {
-                        expiresInMinutes: "24h"
+                        expiresIn: "24h"
                     });
 
                     res.json({
