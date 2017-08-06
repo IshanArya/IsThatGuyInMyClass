@@ -7,7 +7,7 @@ var config = require('../config');
 var router = express.Router();
 
 
-var secret = config.mongodb.secret;
+var secret = config.secret;
 
 var transporter = mailer.createTransport(config.mailerTransport);
 
