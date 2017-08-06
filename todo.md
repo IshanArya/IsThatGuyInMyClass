@@ -19,5 +19,6 @@
 ```
 
 
-#Changelog explanations
+# Changelog explanations
 - Changed token payload to just email so the token wouldn't change whenever someone updated their schedule
+- Added verified page in `index.js` routes

@@ -18,8 +18,20 @@ router.use(function(req, res, next) {
                     message: "Failed to authenticate token."
                 });
             } else {
-                req.decoded = decoded;
-                next();
+                // req.decoded = decoded;
+                Student.findOne({
+                    email: decoded
+                }, function(err, user) {
+                    if (err) {
+                        res.json({
+                            success: false,
+                            message: "User with email " + email + " not found."
+                        });
+                    } else {
+                        req.user = user;
+                        next();
+                    }
+                });
             }
         });
     } else {
@@ -31,26 +43,22 @@ router.use(function(req, res, next) {
 });
 
 router.get('/verify', function(req, res) {
-    
-});
-
-
-router.get('/schedule', function(req, res) {
-    Student.findOne({
-        email: req.decoded
-    }, function(err, user) {
-        if(err) {
-            res.json({
-                success: false,
-                message: err.message
-            });
+    req.user.verified = true;
+    req.user.save(function(err) {
+        if (err) {
+            next(err);
         } else {
-            res.render("schedule", {
-                student: user._doc
+            res.render('verified', {
+                user: req.user
             });
         }
     });
-	
+});
+
+router.get('/schedule', function(req, res) {
+	res.render("schedule", {
+        student: req.user
+    });
 });
 
 module.exports = router;
