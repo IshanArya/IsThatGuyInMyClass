@@ -1,6 +1,7 @@
 var express = require('express');
 var jwt = require('jsonwebtoken');
 var config = require('../config');
+var Student = require('../model/student');
 var path = require('path');
 var router = express.Router();
 
@@ -29,11 +30,27 @@ router.use(function(req, res, next) {
     }
 });
 
+router.get('/verify', function(req, res) {
+    
+});
+
 
 router.get('/schedule', function(req, res) {
-	res.render("schedule", {
-        student: req.decoded._doc
+    Student.findOne({
+        email: req.decoded
+    }, function(err, user) {
+        if(err) {
+            res.json({
+                success: false,
+                message: err.message
+            });
+        } else {
+            res.render("schedule", {
+                student: user._doc
+            });
+        }
     });
+	
 });
 
 module.exports = router;
