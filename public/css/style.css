@@ -5,12 +5,12 @@ body {
 	padding: 0;
 	background-color: #233237 ;
 	background-size: cover;
-	color: #EAC67A ;
+	color: #984B43 ;
 }
 
 label {
 	font-size: 1.4em;
-	color: #984B43;
+	/* color: #984B43; */
 }
 
 .eagle-image {
@@ -23,13 +23,16 @@ label {
 	/* bottom: 10px; */
 }
 
-
-
-.navbar-brand {
-	margin-top: -10px;
+.title {
+	text-align: center;
+	/* color: #984B43;  */
 }
 
- h1{
+.label-body {
+	font-size: 1.5rem;
+}
+
+ /* h1{
 	color: #984B43;
 }
 
@@ -44,9 +47,9 @@ label {
 
  h5{
 	 color: #984B43;
- }
+ } */
 
- input[type = username]{
+ input[type = email]{
 	 background-color: #222222;
 	  color: #EAC67A ;
  }
