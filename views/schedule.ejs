@@ -1,12 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/skeleton.css">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <% for (var i = 0; i < student.classes.length; i++) { %>
-        <p>Period <%= i + 1 %>: <%= student.classes[i] %></p>
-    <% } %>
+
+<div class="container">
+    <div class="row">
+        <div class="four columns">
+            <h4>Schedule for <%= student.name %></h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="four columns">
+            <table class="u-full-width">
+                <thead>
+                    <th>Period</th>
+                    <th>Room #</th>
+                </thead>
+                <tbody>
+                    <% for (var i = 0; i < student.classes.length; i++) { %>
+                    <tr>
+                        <td><%= i + 1 %></td>
+                        <td><%= student.classes[i] %></td>
+                    </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
