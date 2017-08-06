@@ -1,18 +1,85 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>Login</title>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<script type="text/javascript" src="/js/login.js"></script>
-	</head>
-	<body>
-		<form action="" method="POST" id="login">
-			<label for="email">Email:</label>
-			<input type="email" class="" id="email" name="email" placeholder="Enter email">
-			<label for="password">Password:</label>
-			<input type="password" class="" id="password" name="password" placeholder="Enter password">
-			<label><input type="checkbox" id="remember" name="remember"> Remember me</label>
-			<input type="submit">
-		</form>
-	</body>
+<html lang="en">
+
+<head>
+    <title> IsThatGuyInMyClass </title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width = device-width, initial-scale = 1">
+
+    <link rel="stylesheet" href="/css/skeleton.css">
+    <link rel="stylesheet" href="/css/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/login.js"></script>
+
+</head>
+
+<body>
+
+    <div class="navbar-spacer"></div>
+    <nav class="navbar">
+        <div class="container">
+            <ul class="navbar-list">
+                <li class="navbar-item"><a class="navbar-link" href="#">Home</a></li>
+                <li class="navbar-item"><a class="navbar-link" href="/register">Register</a></li>
+                <li class="navbar-item"><a class="navbar-link" href="/login">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="six columns offset-by-three">
+                <h1 class="title">Login</h1>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="four columns offset-by-four">
+                <img class="eagle-image" src="/imgs/logo/logo_transparent.png" width="250" height="250">
+            </div>
+        </div>
+        <br>
+        <form action="" method="POST" id="login">
+            <div class="row">
+                <div class="six columns offset-by-three">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" class="u-full-width" id="email" placeholder="Email">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="six columns offset-by-three">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" class="u-full-width" id="password" placeholder="Password">
+                </div>
+            </div>
+            <h5>
+                <div class="row">
+                    <div class="four columns offset-by-three">
+                        <label>
+                            <input type="checkbox" id="remember" name="remember">
+                            <span class="label-body">Remember me</span>
+                        </label>
+                    </div>
+                </div>
+            </h5>
+            <div class="row">
+                <div class="four columns offset-by-four">
+                    <input type="submit" class="u-full-width" value="Login">
+                </div>
+            </div>
+        </form>
+        <br>
+        <div class="row address">
+            <div class="twelve columns">
+                <strong> Created by <a href="mailto:cindrinc@gmail.com" target="_blank"> Bharddwaj Vemulapalli, Ishan Arya, Tarun Boddupalli </a></strong>
+                <br>Cindr&trade;</br>
+                Edison, NJ
+            </div>
+        </div>
+    </div>
+
+</body>
+
 </html>

@@ -5,7 +5,7 @@ body {
 	padding: 0;
 	background-color: #233237 ;
 	background-size: cover;
-	color: #984B43 ;
+	color: #EAC67A ;
 }
 
 label {
@@ -26,6 +26,40 @@ label {
 .title {
 	text-align: center;
 	/* color: #984B43;  */
+}
+
+.home .title {
+	text-align: right;
+	font-size: 4em;
+	font-weight: bold;
+}
+
+.home .subtitle {
+	text-align: right;
+	color: #F3F3F3;
+}
+
+.home hr {
+	border-top: 10px solid #984B43;
+}
+
+@media (max-width: 768px) {
+	img.logo {
+		width: 100px;
+		height: 100px;
+	}
+
+	.home .title {
+		font-size: 2em;
+	}
+
+	.home .subtitle {
+		font-size: 1.3em;
+	}
+
+	.home hr {
+		border-top: 3px solid #984B43;
+	}
 }
 
 .label-body {

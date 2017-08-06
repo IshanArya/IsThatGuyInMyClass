@@ -57,8 +57,8 @@ router.get('/verify', function(req, res) {
     });
 });
 
-router.get('/schedule', function(req, res) {
-	res.render("schedule", {
+router.get('/profile', function(req, res) {
+	res.render("profile", {
         student: req.student,
         token: req.token
     });
