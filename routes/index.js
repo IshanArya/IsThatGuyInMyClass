@@ -21,35 +21,37 @@ router.use(function(req, res, next) {
                 // req.decoded = decoded;
                 Student.findOne({
                     email: decoded
-                }, function(err, user) {
+                }, function(err, student) {
                     if (err) {
                         res.json({
                             success: false,
-                            message: "User with email " + email + " not found."
+                            message: "Student with email " + email + " not found."
                         });
                     } else {
-                        req.user = user;
+                        req.student = student;
+                        req.token = token;
                         next();
                     }
                 });
             }
         });
     } else {
-        res.json({
-            success: false,
-            message: "No web token provided."
-        });
+        res.redirect('/login');
+        // res.json({
+        //     success: false,
+        //     message: "No web token provided."
+        // });
     }
 });
 
 router.get('/verify', function(req, res) {
-    req.user.verified = true;
-    req.user.save(function(err) {
+    req.student.verified = true;
+    req.student.save(function(err) {
         if (err) {
             next(err);
         } else {
             res.render('verified', {
-                user: req.user
+                student: req.student
             });
         }
     });
@@ -57,7 +59,14 @@ router.get('/verify', function(req, res) {
 
 router.get('/schedule', function(req, res) {
 	res.render("schedule", {
-        student: req.user
+        student: req.student,
+        token: req.token
+    });
+});
+
+router.get('/update_profile', function(req, res) {
+    res.render("update_profile", {
+        student: req.student
     });
 });
 

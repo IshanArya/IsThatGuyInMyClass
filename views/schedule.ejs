@@ -6,7 +6,27 @@
 </head>
 <body>
 
+<div class="navbar-spacer"></div>
+<nav class="navbar">
+    <div class="container">
+        <ul class="navbar-list">
+            <li class="navbar-item"><a class="navbar-link" href="/">Home</a></li>
+            <!-- <li class="navbar-item"><a class="navbar-link" href="/register">Register</a></li> -->
+            <!-- <li class="navbar-item"><a class="navbar-link" href="/login">Login</a></li> -->
+        </ul>
+    </div>
+</nav>
+
 <div class="container">
+<br><br>
+<% if (student.classes.length == 0) { %>
+    <div class="row">
+        <div class="eight columns">
+            <h3>You haven't entered your schedule information yet.</h3>
+            <h3>You can do that <a href="/update_profile?token=<%= token %>">here</a>.</h3>
+        </div>
+    </div>
+<% } else { %>
     <div class="row">
         <div class="four columns">
             <h4>Schedule for <%= student.name %></h4>
@@ -30,6 +50,8 @@
             </table>
         </div>
     </div>
+<% } %>
+
 </div>
 
 </body>
