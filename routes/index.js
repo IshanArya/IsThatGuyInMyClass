@@ -12,7 +12,7 @@ router.use(function(req, res, next) {
     if(token) {
         jwt.verify(token, secret, function(err, decoded) {
             if(err) {
-                return res.json({
+                res.json({
                     success: false,
                     message: "Failed to authenticate token."
                 });
@@ -21,12 +21,19 @@ router.use(function(req, res, next) {
                 next();
             }
         });
-    } 
+    } else {
+        res.json({
+            success: false,
+            message: "No web token provided."
+        });
+    }
 });
 
 
 router.get('/schedule', function(req, res) {
-	res.render("schedule");
+	res.render("schedule", {
+        student: req.decoded._doc
+    });
 });
 
 module.exports = router;
