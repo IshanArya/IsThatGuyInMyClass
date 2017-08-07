@@ -40,7 +40,6 @@ router.get('/verify', function(req, res) {
         });
     } else {
         res.redirect('/login');
-        
     }
 });
 
