@@ -1,0 +1,17 @@
+html, body {
+	height: 100%;
+}
+.home {
+	text-align: center;
+	font-family: "Open Sans";
+	height: 100%;
+	background-image: url('../imgs/logo/logo_transparent.png');
+	background-repeat: no-repeat;
+	background-position: center top;
+}
+
+#main_image {
+	height: 10%;
+}
+
+
