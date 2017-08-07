@@ -95,9 +95,8 @@ router.use(function(req, res, next) {
     }
 });
 
-router.get('/schedule', function(req, res) {
-    console.log("reach");
-	res.render("schedule", {
+router.get('/profile', function(req, res) {
+	res.render("profile", {
         student: req.student,
         token: req.token
     });

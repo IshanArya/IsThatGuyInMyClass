@@ -14,7 +14,7 @@ $(function() {
 					} else {
 						sessionStorage.authToken = data.token;
 					}
-					window.location.replace("/schedule?token=" + data.token);
+					window.location.replace("/profile?token=" + data.token);
 				} else {
 					console.log(data.message);
 					if(data.message === "Authentication failed. User not found.") {
