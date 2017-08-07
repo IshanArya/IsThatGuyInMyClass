@@ -3,7 +3,7 @@ body {
 	height: 100%;
 	margin: 0;
 	padding: 0;
-	background-color: #233237 ;
+	background-color: #191921 ;
 	background-size: cover;
 	color: #EAC67A ;
 }
@@ -71,6 +71,15 @@ a {
 	font-size: 1.5rem;
 }
 
+#logo, .navbar-list {
+	display: inline-block;
+}
+#logo {
+	height: 50px;
+	margin-right: 30px;
+	margin-bottom: 10px;
+}
+
  /* h1{
 	color: #984B43;
 }
@@ -116,12 +125,12 @@ input[type = password]{
  border: #EAC67A;
 }
 
-input[type = submit], button{
+input[type = submit], button, .button{
   background-color: #18121E;
   color: #EAC67A;
   border-color: #EAC67A;
 }
-input[type = submit]:hover, button:hover{
+input[type = submit]:hover, button:hover, .button:hover{
   background-color: #EAC67A;
   color: #18121E;
   border-color: #EAC67A;
