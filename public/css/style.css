@@ -13,6 +13,11 @@ label {
 	/* color: #984B43; */
 }
 
+a {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
 .eagle-image {
 	margin: 0 auto;
 	display: block;
@@ -48,18 +53,59 @@ label {
  h5{
 	 color: #984B43;
  } */
+input::-webkit-input-placeholder {
+color: #847c8c !important;
+}
+ 
+input:-moz-placeholder { /* Firefox 18- */
+color: #847c8c !important;  
+}
+ 
+input::-moz-placeholder {  /* Firefox 19+ */
+color: #847c8c !important;  
+}
+ 
+input:-ms-input-placeholder {  
+color: #847c8c !important;  
+}
 
  input[type = email]{
-	 background-color: #222222;
-	  color: #EAC67A ;
+	 background-color: #EAC67A;
+	 color: #18121E;
+	 border: #EAC67A;
  }
+ 
 
-  input[type = password]{
-	   background-color: #222222;
-	  color: #EAC67A ;
-  }
+input[type = password]{
+ background-color: #EAC67A;
+ color: #18121E;
+ border: #EAC67A;
+}
 
-  input[type = submit]{
-	  background-color: #222222;
-	  color: white;
-  }
+input[type = submit], button{
+  background-color: #18121E;
+  color: #EAC67A;
+  border-color: #EAC67A;
+}
+input[type = submit]:hover, button:hover{
+  background-color: #EAC67A;
+  color: #18121E;
+  border-color: #EAC67A;
+}
+
+
+.white {
+	color: #F3F3F3;
+}
+.yellow {
+	color: #EAC67A;
+}
+.red {
+	color: #984B43;
+}
+.darkblue {
+	color: #233237;
+}
+.darkpurple {
+	color: #18121E;
+}

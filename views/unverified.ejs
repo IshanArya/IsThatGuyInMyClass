@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<title>Sorry!</title>
+        <link rel="stylesheet" href="/css/skeleton.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/minor.css">
+    </head>
+    <body>
+
+        <div class="container">
+            <h1>Sorry!</h1>
+            <h2>You are still unverified, <span class="white"><%= student.name %>.<span></h2>
+            <br>
+            <br>
+            <h4>Just to verify, your email is: <b><span class="white"><%= student.email %></span></b></h4>
+
+            <div class="row">
+                <div class="six columns">
+                    <h5>If you need us to resend the verification email, click here.</h5>
+                    <form method="GET" action="/api/reverify">
+                        <input type="hidden" name="token" class="token">
+                        <button>Resend</button>
+                    </form>
+                </div>
+                <div class="six columns">
+                    <h5>If you need to change your email, enter this form.</h5>
+                    <form method="GET" action="/api/changeemail">
+                        <input type="hidden" name="token" class="token" value="">
+                        <input type="email" name="email" placeholder="New email">
+                        <button>Change email</button>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            var tokens = document.getElementsByClassName('token');
+            for(var i = 0; i < tokens.length; i++) {
+                tokens[i].value = sessionStorage.authToken || localStorage.authToken;
+            }
+         </script>
+    </body>
+</html>

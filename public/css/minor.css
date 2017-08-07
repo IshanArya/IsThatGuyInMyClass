@@ -1,0 +1,21 @@
+.container {
+	margin-top: 50px;
+	border: 5px dashed #984B43;
+	border-radius: 20px;
+	background-color: #18121E;
+}
+
+h1, h2, h3, h4, h5 {
+	text-align: center;
+}
+h1 {
+	color: #EAC67A;
+}
+span {
+	display: block;
+}
+
+.row {
+	margin-top: 50px;
+	text-align: center;
+}

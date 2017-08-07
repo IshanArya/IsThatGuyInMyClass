@@ -13,7 +13,7 @@ var Schema = mongoose.Schema;
 var studentSchema = new Schema({
     email: String,
     password: String,
-    verfied: Boolean,
+    verified: Boolean,
     name: String,
     classes: []
 });
