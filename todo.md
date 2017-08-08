@@ -5,8 +5,7 @@
 - Finish register page
 - Finish home page
 - Make stronger password for Atlas
-- Make a change password page
-- Redirect failed token to login page (maybe)
+- Finish change password page
 
 
 # Colors for Website:

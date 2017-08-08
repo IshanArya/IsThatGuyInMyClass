@@ -1,0 +1,16 @@
+.home {
+	margin-top: 20px;
+}
+
+label {
+	font-size: 1em;
+	width: 50%;
+	display: inline-block;
+}
+.passfield {
+	text-align: right;
+}
+
+form {
+	text-align: center;
+}

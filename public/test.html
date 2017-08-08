@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/css/skeleton.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="css/index.css">
+
+    </head>
+    <body>
+
+        <div class="navbar-spacer"></div>
+        <nav class="navbar">
+            <div class="container" id="nav_container">
+                <img src="/imgs/logo/logo_transparent.png" id="logo">
+                <ul class="navbar-list">
+                    <li class="navbar-item"><a class="navbar-link" href="/">Home</a></li>
+                    <li class="navbar-item"><a class="navbar-link" href="/register">Register</a></li>
+                    <li class="navbar-item"><a class="navbar-link" href="/login">Login</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container">
+            <br>
+            <div class="row">
+                <div class="four columns">
+                    <p>Your information is below. Should you wish to change any of it, click on the desired item to change.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="two columns">
+                    <h4>Email:</h4>
+                </div>
+                <div class="four columns">
+                    <h4><a href="#"><%= student.email %></a></h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="two columns">
+                    <h4>Name:</h4>
+                </div>
+                <div class="four columns">
+                    <h4><a href="#"><%= student.name %></a></h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="eight columns">
+                    <table class="table">
+                        <thead>
+
+                        </thead>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="two columns">
+                    <a href="#" class="button">Save Information</a>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

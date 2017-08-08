@@ -113,51 +113,6 @@ router.post('/authenticate', function(req, res) {
     });
 });
 
-router.get('/reverify', function(req, res) {
-    var token = req.body.token || req.query.token || req.headers['x-access-token'];
-    var link = req.protocol + "://" + req.get('host') + "/verify?token=" + token;
-    jwt.verify(token, secret, function(err, decoded) {
-        if(err) {
-            res.redirect('/login')
-        } else {
-            sendVerificationEmail(decoded, link);
-            res.redirect('/reverify');
-        }
-    })
-});
-
-router.get('/changeemail', function(req, res) {
-    var token = req.body.token || req.query.token || req.headers['x-access-token'];
-    var newEmail = req.body.email || req.query.email;
-
-    jwt.verify(token, secret, function(err, decoded) {
-        if(err) {
-            res.redirect('/login')
-        } else {
-            Student.findOne({
-                email: decoded
-            }, function(err, student) {
-                if (err) {
-                    res.redirect('/login')
-                } else {
-                    student.verified = false;
-                    student.email = newEmail;
-                    student.save(function(err) {
-                        if (err) {
-                            next(err);
-                        } else {
-                            var newToken = jwt.sign(newEmail, secret);
-                            var link = req.protocol + "://" + req.get('host') + "/verify?token=" + newToken;
-                            sendVerificationEmail(newEmail, link);
-                            res.redirect('/emailchanged');
-                        }
-                    });
-                }
-            });
-        }
-    });
-});
-
 
 router.get('/students', function(req, res, next) {
     Student.find(function(err, students) {
@@ -168,6 +123,96 @@ router.get('/students', function(req, res, next) {
                 success: true,
                 students: students
             });
+        }
+    });
+});
+
+
+router.use(function(req, res, next) {
+    var token = req.body.token || req.query.token || req.headers['x-access-token'];
+
+    if(token) {
+        jwt.verify(token, secret, function(err, decoded) {
+            if(err) {
+                res.redirect('/login');
+            } else {
+                Student.findOne({
+                    email: decoded
+                }, function(err, student) {
+                    if (err) {
+                        res.redirect('/login');
+                    } else {
+                        if(student) {
+                            console.log(student.verified);
+                            if(student.verified) {
+                                req.student = student;
+                                req.token = token;
+                                next();
+                            } else {
+                                res.render('unverified', {
+                                    student: student
+                                });
+                            }
+                        } else {
+                            res.redirect('/emailwaschanged');
+                        }
+                    }
+                });
+            }
+        });
+    } else {
+        res.redirect('/login');
+    }
+});
+
+
+router.get('/reverify', function(req, res) {
+    var link = req.protocol + "://" + req.get('host') + "/verify?token=" + req.token;
+
+    sendVerificationEmail(req.student.email, link);
+    res.redirect('/reverify');
+});
+
+router.get('/changeemail', function(req, res, next) {
+    var student = req.student;
+    var newEmail = req.body.email || req.query.email;
+
+    student.verified = false;
+    student.email = newEmail;
+    student.save(function(err) {
+        if (err) {
+            next(err);
+        } else {
+            var newToken = jwt.sign(newEmail, secret);
+            var link = req.protocol + "://" + req.get('host') + "/verify?token=" + newToken;
+            sendVerificationEmail(newEmail, link);
+            res.redirect('/emailchanged');
+        }
+    });
+});
+router.get('/changename', function(req, res) {
+    var student = req.student;
+    var newName = req.body.name || req.query.name;
+
+    student.name = newName;
+    student.save(function(err) {
+        if (err) {
+            next(err);
+        } else {
+            res.redirect('/namechanged');
+        }
+    });
+});
+router.post('/changepassword', function(req, res) {
+    var student = req.student;
+    var newPassword = req.body.password || req.query.password;
+
+    student.password = newPassword;
+    student.save(function(err) {
+        if (err) {
+            next(err);
+        } else {
+            res.redirect('/passwordchanged');
         }
     });
 });

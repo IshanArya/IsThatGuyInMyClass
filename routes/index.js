@@ -24,11 +24,14 @@ router.get('/registered', function(req, res) {
 router.get('/reverify', function(req, res) {
     res.render('reverify');
 });
+router.get('/namechanged', function(req, res) {
+    res.render('namechanged');
+});
 router.get('/emailchanged', function(req, res) {
     res.render('emailchanged');
 });
-router.get('/emailhaschanged', function(req, res) {
-    res.render('emailhaschanged');
+router.get('/emailwaschanged', function(req, res) {
+    res.render('emailwaschanged');
 });
 
 router.get('/verify', function(req, res) {
@@ -103,7 +106,7 @@ router.use(function(req, res, next) {
                                 });
                             }
                         } else {
-                            res.redirect('/emailhaschanged');
+                            res.redirect('/emailwaschanged');
                         }
                     }
                 });
