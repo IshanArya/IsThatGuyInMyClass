@@ -1,60 +1,81 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <link rel="stylesheet" href="/css/skeleton.css">
-    <link rel="stylesheet" href="/css/style.css">
-</head>
-<body>
+    <head>
+        <% include partials/style %>
+        <link rel="stylesheet" href="/css/update_profile.css">
 
-<div class="navbar-spacer"></div>
-<nav class="navbar">
-    <div class="container">
-        <ul class="navbar-list">
-            <li class="navbar-item"><a class="navbar-link" href="/">Home</a></li>
-            <!-- <li class="navbar-item"><a class="navbar-link" href="/register">Register</a></li> -->
-            <!-- <li class="navbar-item"><a class="navbar-link" href="/login">Login</a></li> -->
-        </ul>
-    </div>
-</nav>
+    </head>
+    <body>
 
-<div class="container">
-    <br>
-    <div class="row">
-        <div class="four columns">
-            <p>Your information is below. Should you wish to change any of it, click on the desired item to change.</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="two columns">
-            <h4>Email:</h4>
-        </div>
-        <div class="four columns">
-            <h4><a href="#"><%= student.email %></a></h4>
-        </div>
-    </div>
-    <div class="row">
-        <div class="two columns">
-            <h4>Name:</h4>
-        </div>
-        <div class="four columns">
-            <h4><a href="#"><%= student.name %></a></h4>
-        </div>
-    </div>
-    <div class="row">
-        <div class="eight columns">
-            <table class="table">
-                <thead>
+        <% include partials/main_nav %>
 
-                </thead>
-            </table>
-        </div>
-    </div>
-    <div class="row">
-        <div class="two columns">
-            <a href="#" class="button">Save Information</a>
-        </div>
-    </div>
-</div>
+        <div class="container home">
+            <h1>Account Settings</h1>
+            <br>
+            <br>
+            <div class="row">
+                <div class="six columns">
+                    <h5>Change your name.</h5>
+                    <form method="GET" action="/api/changename" id="form_name">
+                        <input type="hidden" name="token" class="token" value="">
+                        <input type="text" name="name" placeholder="New name" value="<%= student.name %>">
+                        <button>Change name</button>
+                    </form>
+                </div>
+                <div class="six columns">
+                    <h5>Change your schedule.</h5>
+                    <form method="POST" action="/api/changeschedule" id="form_schedule">
+                        <input type="hidden" name="token" class="token" value="">
+                        <div class="passfield">
+                            <label class="">Enter new password:</label>
+                            <input type="password" id="password1" class="" name="password" placeholder="New password">
+                        </div>
+                        <br>
+                        <div class="passfield">
+                            <label class="">Confirm password:</label>
+                            <input type="password" id="password2" class="" placeholder="Confirm password">
+                        </div>
+                        <br>
+                        <button>Change password</button>
+                    </form>
+                </div>
+            </div>
+            <hr>
 
-</body>
+            <div class="row">
+                <div class="six columns">
+                    <h5>Change your email.</h5>
+                    <form method="GET" action="/api/changeemail" id="form_email">
+                        <input type="hidden" name="token" class="token" value="">
+                        <input type="email" name="email" placeholder="New email" value="<%= student.email %>">
+                        <button>Change email</button>
+                    </form>
+                </div>
+                <div class="six columns">
+                    <h5>Change your password.</h5>
+                    <form method="POST" action="/api/changepassword" id="form_password">
+                        <input type="hidden" name="token" class="token" value="">
+                        <div class="passfield">
+                            <label class="">Enter new password:</label>
+                            <input type="password" id="password1" class="" name="password" placeholder="New password">
+                        </div>
+                        <br>
+                        <div class="passfield">
+                            <label class="">Confirm password:</label>
+                            <input type="password" id="password2" class="" placeholder="Confirm password">
+                        </div>
+                        <br>
+                        <button>Change password</button>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            var tokens = document.getElementsByClassName('token');
+            for(var i = 0; i < tokens.length; i++) {
+                tokens[i].value = sessionStorage.authToken || localStorage.authToken;
+            }
+         </script>
+    </body>
 </html>

@@ -97,43 +97,33 @@ a {
 	 color: #984B43;
  } */
 input::-webkit-input-placeholder {
-color: #847c8c !important;
-}
- 
+	color: #847c8c !important;
+} 
 input:-moz-placeholder { /* Firefox 18- */
-color: #847c8c !important;  
+	color: #847c8c !important;  
 }
- 
 input::-moz-placeholder {  /* Firefox 19+ */
-color: #847c8c !important;  
+	color: #847c8c !important;  
 }
- 
 input:-ms-input-placeholder {  
-color: #847c8c !important;  
+	color: #847c8c !important;  
 }
 
- input[type = email]{
-	 background-color: #EAC67A;
-	 color: #18121E;
-	 border: #EAC67A;
- }
- 
-
-input[type = password]{
- background-color: #EAC67A;
- color: #18121E;
- border: #EAC67A;
+input[type = email], input[type = password], input[type = text]{
+	background-color: #EAC67A;
+	color: #18121E;
+	border: #EAC67A;
 }
 
 input[type = submit], button, .button{
-  background-color: #18121E;
-  color: #EAC67A;
-  border-color: #EAC67A;
+	background-color: #18121E;
+	color: #EAC67A;
+	border-color: #EAC67A;
 }
 input[type = submit]:hover, button:hover, .button:hover{
-  background-color: #EAC67A;
-  color: #18121E;
-  border-color: #EAC67A;
+	background-color: #EAC67A;
+	color: #18121E;
+	border-color: #EAC67A;
 }
 
 
