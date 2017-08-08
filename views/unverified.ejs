@@ -2,13 +2,11 @@
 <html>
     <head>
     	<title>Sorry!</title>
-        <link rel="stylesheet" href="/css/skeleton.css">
-        <link rel="stylesheet" href="/css/style.css">
-        <link rel="stylesheet" href="/css/minor.css">
+        <% include partials/minor %>
     </head>
     <body>
-
-        <div class="container">
+        <% include partials/main_nav %>
+        <div class="container home">
             <h1>Sorry!</h1>
             <h2>You are still unverified, <span class="white"><%= student.name %>.<span></h2>
             <br>

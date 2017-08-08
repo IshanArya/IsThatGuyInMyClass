@@ -7,6 +7,30 @@ var router = express.Router();
 
 var secret = config.secret;
 
+router.get('/', function(req, res) {
+    res.render('index');
+});
+
+router.get('/login', function(req, res) {
+    res.render('login');
+});
+router.get('/register', function(req, res) {
+    res.render('register');
+});
+
+router.get('/registered', function(req, res) {
+    res.render('registered');
+});
+router.get('/reverify', function(req, res) {
+    res.render('reverify');
+});
+router.get('/emailchanged', function(req, res) {
+    res.render('emailchanged');
+});
+router.get('/emailhaschanged', function(req, res) {
+    res.render('emailhaschanged');
+});
+
 router.get('/verify', function(req, res) {
     var token = req.body.token || req.query.token || req.headers['x-access-token'];
     if(token) {

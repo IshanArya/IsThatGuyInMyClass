@@ -1,10 +1,40 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title><%= title %></title>
-</head>
-<body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-</body>
+<html lang="en">
+
+	<head>
+	    <title> IsThatGuyInMyClass™ </title>
+
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width = device-width, initial-scale = 1">
+	    
+	    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+	    <% include partials/style %>
+	    <link rel="stylesheet" href="css/index.css">
+
+	</head>
+
+	<body>
+
+		<% include partials/main_nav %>
+
+		<div class="container home">
+		    <br>
+		    <div class="row" id="main_bg">
+		        <div class="seven columns u-pull-right">
+		            <h1 class="title">Is that guy in your class?</h1>
+		            <hr class="line">
+		            <h3 class="subtitle">Wouldn't you like to know?</h3>
+		        </div>
+		    </div>
+		    <br><br>
+		    <div class="row">
+		        <div class="four columns offset-by-four">
+		            <a href="/register" class="button">Sign Up</a>
+		            <a href="/login" class="button">Login</a>
+		        </div>
+		    </div>
+		</div>
+
+	</body>
+
 </html>
