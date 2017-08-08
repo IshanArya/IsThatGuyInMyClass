@@ -2,13 +2,19 @@
 <html>
 	<head>
 		<title> Register </title>
+		
 		<% include partials/style %>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script type="text/javascript" src="/js/register.js"></script>
+		<link rel="stylesheet" type="text/css" href="/css/register.css">
 	</head>
+	<% include partials/main_nav %>
 	<body>
-		<% include partials/main_nav %>
-		<form action="" method="POST" id="register">
+	<p>
+	<div class="container" >
+
+	 <form action="" method="POST" id="register">
+
 			<label for="email">Email:</label>
 			<input type="email" class="" id="email" name="email" placeholder="Enter email">
 			<label for="name">Full Name:</label>
@@ -17,7 +23,12 @@
 			<input type="password" class="" id="password1" name="password" placeholder="Enter password">
 			<label for="password2">Confirm password:</label>
 			<input type="password" class="" id="password2" placeholder="Confirm password">
+		<div class="row">
 			<input type="submit">
+		</div>	
 		</form>
+		</div>
+		</p>
+		
 	</body>
 </html>
