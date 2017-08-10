@@ -1,34 +1,61 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title> Register </title>
-		
-		<% include partials/style %>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<script type="text/javascript" src="/js/register.js"></script>
-		<link rel="stylesheet" type="text/css" href="/css/register.css">
-	</head>
+
+<head>
+	<title> Register </title>
+	<% include partials/style %>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/register.js"></script>
+	<link rel="stylesheet" type="text/css" href="/css/register.css">
+</head>
+<body>
 	<% include partials/main_nav %>
-	<body>
-	<p>
-	<div class="container" >
-
-	 <form action="" method="POST" id="register">
-
-			<label for="email">Email:</label>
-			<input type="email" class="" id="email" name="email" placeholder="Enter email">
-			<label for="name">Full Name:</label>
-			<input type="text" class="" id="name" name="name" placeholder="Name">
-			<label for="password1">Create password:</label>
-			<input type="password" class="" id="password1" name="password" placeholder="Enter password">
-			<label for="password2">Confirm password:</label>
-			<input type="password" class="" id="password2" placeholder="Confirm password">
-		<div class="row">
-			<input type="submit">
-		</div>	
+	<br><br>
+	<div class="container">
+		<form action="" method="POST" id="register">
+			<div class="row">
+				<div class="three columns offset-by-two">
+					<label for="email">Email:</label>
+				</div>
+				<div class="five columns">
+					<input type="email" class="u-full-width" id="email" name="email" placeholder="Enter email">
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="three columns offset-by-two">
+					<label for="name">Full Name:</label>
+				</div>
+				<div class="five columns">
+					<input type="text" class="u-full-width" id="name" name="name" placeholder="Name">
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="three columns offset-by-two">
+					<label for="password1">Create password:</label>
+				</div>
+				<div class="five columns">
+					<input type="password" class="u-full-width" id="password1" name="password" placeholder="Enter password">
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="three columns offset-by-two">
+					<label for="password2">Confirm password:</label>
+				</div>
+				<div class="five columns">
+					<input type="password" class="u-full-width" id="password2" placeholder="Confirm password">
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="two columns offset-by-five">
+					<input type="submit" class="u-full-width">
+				</div>
+			</div>
 		</form>
-		</div>
-		</p>
-		
-	</body>
+	</div>
+</body>
+
 </html>

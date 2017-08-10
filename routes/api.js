@@ -217,6 +217,22 @@ router.post('/changepassword', function(req, res) {
     });
 });
 
+router.post('/changeschedule', function(req, res) {
+    var student = req.student;
+    var classes = [];
+    for (var i = 0; i < 12; i++) {
+        classes.push(req.body["class" + i]);
+    }
+    student.classes = classes;
+    student.save(function(err) {
+        if (err) {
+            next(err);
+        } else {
+            res.redirect('/schedule');
+        }
+    })
+});
+
 // router.get('/similar', function(req, res) {
 //     // 5980c7a55e359d104130ae41
 //     var id = req.body.id;
