@@ -1,7 +1,6 @@
 $(function() {
 	$('#login').submit(function(e) {
 		e.preventDefault();
-		// console.log("press");
 		if($('#email').val() && $('#password').val()) {
 			console.log("post");
 			$.post("/api/authenticate", {
@@ -14,7 +13,7 @@ $(function() {
 					} else {
 						sessionStorage.authToken = data.token;
 					}
-					window.location.replace("/profile?token=" + data.token);
+					window.location.replace("/schedule?token=" + data.token);
 				} else {
 					console.log(data.message);
 					if(data.message === "Authentication failed. User not found.") {
@@ -33,6 +32,7 @@ $(function() {
 	});
 
 	function notify(message) {
+		alert(message);
 		console.log(message);
 	}
 });

@@ -11,6 +11,13 @@ router.get('/', function(req, res) {
     res.render('index');
 });
 
+// var routesWithoutTokens = ['login', 'register', 'registered', 'reverify', 'namechanged', 'emailchanged', 'emailwaschanged'];
+// for (var i = 0; i < routesWithoutTokens.lengths; i++) {
+//     router.get(routesWithoutTokens[i], function(req, res) {
+//         res.render(routesWithoutTokens[i]);
+//     })
+// }
+
 router.get('/login', function(req, res) {
     res.render('login');
 });
@@ -121,8 +128,8 @@ router.use(function(req, res, next) {
     }
 });
 
-router.get('/profile', function(req, res) {
-	res.render("profile", {
+router.get('/schedule', function(req, res) {
+	res.render("schedule", {
         student: req.student,
         token: req.token
     });
@@ -130,7 +137,18 @@ router.get('/profile', function(req, res) {
 
 router.get('/update_profile', function(req, res) {
     res.render("update_profile", {
-        student: req.student
+        student: req.student,
+        token: req.token 
+    });
+});
+
+router.get('/friends', function(req, res) {
+    req.student.findFriends(function(friends) {
+        res.render("friends", {
+            student: req.student,
+            token: req.token,
+            friends: friends
+        });
     });
 });
 
