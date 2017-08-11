@@ -52,9 +52,9 @@
 @media (min-width: 550px) {
   .container {
     width: 80%; }
-  .column,
+  /* .column,
   .columns {
-    margin-left: 4%; }
+    margin-left: 4%; } */
   .column:first-child,
   .columns:first-child {
     margin-left: 0; }
@@ -846,10 +846,54 @@ th {
   padding: 0;
 }
 
-@media (max-width: 750px) {
+/* @media (max-width: 750px) {
   .navbar {
     display: none;
   }
+} */
+
+@media (max-width: 750px) {
+  .navbar #logo { display: none; }
+  .navbar,
+  .navbar-spacer {
+    display: block;
+    width: 100%;
+    height: 6.5rem;
+    background: #18121E;
+    z-index: 99;
+    border-top: 1px solid #984b43;
+    border-bottom: 1px solid #984b43; }
+  .navbar-spacer {
+    display: none; }
+  .navbar > .container {
+    width: 100%; }
+  .navbar-list {
+    list-style: none;
+    margin-bottom: 0; }
+  .navbar-item {
+    position: relative;
+    float: left;
+    margin-top: -20px; }
+  .navbar-link {
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .2rem;
+    margin-right: 35px;
+    text-decoration: none;
+    line-height: 6.5rem;
+    color: #EAC67A; }
+  .navbar-link.active {
+    color: #F3F3F3; }
+  .has-docked-nav .navbar {
+    position: fixed;
+    top: 0;
+    left: 0; }
+  .has-docked-nav .navbar-spacer {
+    display: block; }
+  /* Re-overiding the width 100% declaration to match size of % based container */
+  .has-docked-nav .navbar > .container {
+    width: 80%; }
 }
 
 /* Larger than tablet */
