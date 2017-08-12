@@ -228,7 +228,7 @@ router.post('/changeschedule', function(req, res) {
         if (err) {
             next(err);
         } else {
-            res.redirect('/schedule');
+            res.redirect('/schedule?token=' + req.body.token);
         }
     })
 });

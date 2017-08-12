@@ -11,6 +11,41 @@
 <div class="container home">
     <h1>Account Settings</h1>
     <hr>
+    <form method="POST" action="/api/changeschedule" id="form_schedule">
+        <input type="hidden" name="token" class="token" value="">
+        <div class="row">
+            <div class="four columns">
+                <label>Schedule Change</label>
+            </div>
+        </div>
+        <div class="row">
+        <% 
+            for (var i = 0; i < 12; i++) { 
+                var currentClass = student.classes[i];
+        %>
+            <div class="three columns schedule-select">
+                <label class="small">Period <%= i + 1%></label>
+                <select name="class<%=i%>">
+                    <option value="CAFE" <% if (currentClass === "CAFE") { %> selected="selected" <% } %> >CAFE</option>
+                    <option value="SGYM" <% if (currentClass === "SGYM") { %> selected="selected" <% } %> >SGYM</option>
+                    <option value="BGYM" <% if (currentClass === "BGYM") { %> selected="selected" <% } %> >BGYM</option>
+                    <% for (var j = 0; j < 300; j++) {
+                        var displayNumber = j.toString();
+                        if (j < 10) {
+                            displayNumber = "00" + j;
+                        } else if (j < 100) {
+                            displayNumber = "0" + j;
+                        }
+                        %>
+                    <option value="<%=j%>" <% if (currentClass === j.toString()) { %> selected="selected" <% } %> ><%= displayNumber %></option>
+                    <% } %>
+                </select><br>
+            </div>
+        <% } %>
+        </div>
+        <button>Change Schedule</button>
+    </form>
+    <hr class="small">
     <form method="GET" action="/api/changename" id="form_name">
         <input type="hidden" name="token" class="token" value="">
         <div class="row">
@@ -55,34 +90,6 @@
             </div>
         </div>
         <button>Change password</button>
-    </form>
-    <hr class="small">
-    <form method="POST" action="/api/changeschedule" id="form_schedule">
-        <input type="hidden" name="token" class="token" value="">
-        <div class="row">
-            <div class="four columns">
-                <label>Schedule Change</label>
-            </div>
-        </div>
-        <div class="row">
-        <% 
-            for (var i = 0; i < 12; i++) { 
-                var currentClass = student.classes[i];
-        %>
-            <div class="three columns schedule-select">
-                <label class="small">Period <%= i + 1%></label>
-                <select name="class<%=i%>">
-                    <option value="CAFE" <% if (currentClass === "CAFE") { %> selected="selected" <% } %> >CAFE</option>
-                    <option value="SGYM" <% if (currentClass === "SGYM") { %> selected="selected" <% } %> >SGYM</option>
-                    <option value="BGYM" <% if (currentClass === "BGYM") { %> selected="selected" <% } %> >BGYM</option>
-                    <% for (var j = 0; j < 300; j++) { %>
-                    <option value="<%=j%>" <% if (currentClass === j.toString()) { %> selected="selected" <% } %> ><%=j%></option>
-                    <% } %>
-                </select><br>
-            </div>
-        <% } %>
-        </div>
-        <button>Change Schedule</button>
     </form>
 </div>
 <script type="text/javascript">
