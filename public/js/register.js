@@ -16,7 +16,7 @@ $(function() {
 						if(data.message === "Email already in use.") {
 							notify("Email already in use. Please use a different one.");
 						} else {
-							notify("Server error. Please report this @ cindrinc@gmail.com");
+							notify('Server error. Please report this @ <a href="mailto:cindrinc@gmail.com" target="_blank">');
 						}
 					}
 				});
@@ -29,8 +29,4 @@ $(function() {
 		
 		
 	});
-
-	function notify(message) {
-		console.log(message);
-	}
 });

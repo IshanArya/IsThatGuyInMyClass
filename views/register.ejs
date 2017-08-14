@@ -4,7 +4,7 @@
 <head>
 	<title> Register </title>
 	<% include partials/style %>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<% include partials/scripts %>
 	<script type="text/javascript" src="/js/register.js"></script>
 	<link rel="stylesheet" type="text/css" href="/css/register.css">
 </head>
@@ -12,6 +12,7 @@
 	<% include partials/main_nav %>
 	<br><br>
 	<div class="container">
+		<% include partials/notify %>
 		<form action="" method="POST" id="register">
 			<div class="row">
 				<div class="three columns offset-by-two">

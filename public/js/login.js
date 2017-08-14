@@ -21,7 +21,7 @@ $(function() {
 					} else if(data.message === "Authentication failed. Wrong password.") {
 						notify("Incorrect password");
 					} else {
-						notify("Server error. Please report this @ cindrinc@gmail.com");
+						notify('Server error. Please report this @ <a href="mailto:cindrinc@gmail.com" target="_blank">');
 					}
 				}
 			});
@@ -30,9 +30,4 @@ $(function() {
 		}
 		
 	});
-
-	function notify(message) {
-		alert(message);
-		console.log(message);
-	}
 });

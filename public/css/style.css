@@ -98,6 +98,17 @@ hr.small {
 	margin-bottom: 10px;
 }
 
+#bar {
+	width: 100%;
+	text-align: center;
+	background-color: #984B43;
+	border: 1px solid #EAC67A;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border-top: 0;
+	display: none;
+}
+
 .row {
 	margin-bottom: 10px;
 }
