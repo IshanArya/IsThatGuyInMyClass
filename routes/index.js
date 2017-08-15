@@ -11,13 +11,6 @@ router.get('/', function(req, res) {
     res.render('index');
 });
 
-// var routesWithoutTokens = ['login', 'register', 'registered', 'reverify', 'namechanged', 'emailchanged', 'emailwaschanged'];
-// for (var i = 0; i < routesWithoutTokens.lengths; i++) {
-//     router.get(routesWithoutTokens[i], function(req, res) {
-//         res.render(routesWithoutTokens[i]);
-//     })
-// }
-
 router.get('/login', function(req, res) {
     res.render('login');
 });

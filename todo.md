@@ -1,11 +1,8 @@
 # TODO
 
-- Add in notification bar for failed login
-- Finish login page
-- Finish register page
-- Finish home page
-- Make stronger password for Atlas
-- Finish change password page
+- Secure /api routes
+- Refactor the finding friends mechanism (too complex to be running hundreds of times, puts stress on database)
+- Set up heroku
 
 
 # Colors for Website:
