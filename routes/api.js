@@ -16,7 +16,7 @@ function sendVerificationEmail(email, link) {
         to: email,
         subject: "Just wanted to make sure you exist!",
         text: "Please visit the following link to verify your account: " + link,
-        html: '<img width=100 style="float: left; margin-right: 15px" src="https://lh3.googleusercontent.com/6qkG-ohrNRng2DgAXHIdCq80Fd4qC5qXYBFPjPtHcdSMP6blGX2bJhYJfJsbb1zh26NtCXdQORYzh9ppYaW6tQD27gyr2bytTj0JnNeegNjdzgl8OOYdq41Ra3JIkT16CkwkHH6zgPah6QOEcBkWKaquez2vFez2l7vPuo5Gq46quX9NSCvzXumYJR--t2LmpH8rYWMPICiJsduThPkEe3Zy9ofB1qWtvveaNbEpBHWb-LmNr0QropXDbUwWdyMdbslYvU9GTMnf-PKNdabuhhU0MFP0jjnPDdX_ddFRCbUatx3iJclXGBz14E2d7vqFpJJBDEuKXSresKuFrkXBefvVsMIaBf_dV0gQCempYXa1lS2UiWE5NcA6ubpG_C1bqfdg8lx4CTyfD5lKFIOeqxR9sHA_1dx9WfgCf235hPb7ixC7XxPNvRDdYEqQBI1l2ofxFXpire43hGP2uja6Qtv3r26zwRPRDGV_iRkwPvwIgamKzjn3Qn01DepB100RsOnGhuEGvYxxipmOZsVQslv1PnAU8fO5PQyRMAIkeOB9ewTA7AUvNkGXAgNPlo8efcHz1w4_2gwFTWXJoM_KOfF5BPi6dj1SoTIMLLwjRa9HWRiWDKXubQc=w906-h892-no"> <p>Thank you for registering with <b>IsThatGuyInMyClass.com</b>. Please visit the following link to verify your account:</p><br><a href="' + link + '">' + link + '</a>'
+        html: '<img width=100 style="float: left; margin-right: 15px" src="https://i.imgur.com/peXjWtg.png"> <p>Thank you for registering with <b>IsThatGuyInMyClass.com</b>. Please visit the following link to verify your account:</p><br><br><a href="' + link + '">' + link + '</a>'
     }, function(err, info) {
         if(err) {
             console.error(err);
