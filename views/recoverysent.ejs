@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Recovery email sent!</title>
+		<% include partials/minor %>
+	</head>
+	<body>
+		<% include partials/main_nav %>
+		<div class="container home">
+			<h1>No worries, <%= student.name %>!</h1>
+			<h3>A recovery email was sent to <span class="white"><%= student.email %></span></h3>
+		</div>
+	</body>
+</html>

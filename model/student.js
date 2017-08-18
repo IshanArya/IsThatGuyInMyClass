@@ -14,6 +14,7 @@ var studentSchema = new Schema({
     email: String,
     password: String,
     verified: Boolean,
+    admin: Boolean,
     name: String,
     classes: []
 });

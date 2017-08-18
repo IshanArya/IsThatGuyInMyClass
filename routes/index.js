@@ -18,23 +18,11 @@ router.get('/register', function(req, res) {
     res.render('register');
 });
 
-router.get('/registered', function(req, res) {
-    res.render('registered');
-});
-router.get('/reverify', function(req, res) {
-    res.render('reverify');
-});
-router.get('/namechanged', function(req, res) {
-    res.render('namechanged');
-});
-router.get('/emailchanged', function(req, res) {
-    res.render('emailchanged');
-});
-router.get('/emailwaschanged', function(req, res) {
-    res.render('emailwaschanged');
+router.get('/forgotmypassword', function(req, res) {
+    res.render('forgotmypassword');
 });
 
-router.get('/verify', function(req, res) {
+router.get('/verify', function(req, res) { //needs to be here 
     var token = req.body.token || req.query.token || req.headers['x-access-token'];
     if(token) {
         jwt.verify(token, secret, function(err, decoded) {
@@ -59,7 +47,7 @@ router.get('/verify', function(req, res) {
                                 }
                             });
                         } else {
-                            res.redirect('/emailhaschanged');
+                            res.render('emailhaschanged');
                         }
                     }
                 });
@@ -106,7 +94,7 @@ router.use(function(req, res, next) {
                                 });
                             }
                         } else {
-                            res.redirect('/emailwaschanged');
+                            res.render('emailwaschanged');
                         }
                     }
                 });
@@ -144,5 +132,16 @@ router.get('/friends', function(req, res) {
         });
     });
 });
+
+
+router.get('/changepassword', function(req, res) {
+    res.render('changepassword', {
+        token: req.token
+    });
+});
+
+
+
+
 
 module.exports = router;

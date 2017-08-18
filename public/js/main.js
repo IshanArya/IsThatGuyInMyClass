@@ -4,3 +4,7 @@ function notify(message) {
 
 	});
 }
+
+$(function() {
+	
+});
