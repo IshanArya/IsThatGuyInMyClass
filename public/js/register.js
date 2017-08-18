@@ -16,7 +16,7 @@ $(function() {
 						if(data.message === "Email already in use.") {
 							notify("Email already in use. Please use a different one.");
 						} else {
-							notify('Server error. Please report this @ <a href="mailto:cindrinc@gmail.com" target="_blank">');
+							notify('Server error. Please report this @ <a href="mailto:cindrinc@gmail.com" target="_blank">cindrinc@gmail.com</a>');
 						}
 					}
 				});
@@ -26,7 +26,5 @@ $(function() {
 		} else {
 			notify("Please fill out all fields.");
 		}
-		
-		
 	});
 });

@@ -82,7 +82,9 @@ router.post('/register', function(req, res) {
 						var link = req.protocol + "://" + req.get('host') + "/verify?token=" + token;
 						sendEmail.verification(email, link);
 
-						res.render('registered');
+						res.json({
+							success: true
+						});
 					}
 				});
 			}

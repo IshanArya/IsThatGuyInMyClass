@@ -14,12 +14,17 @@ router.get('/', function(req, res) {
 router.get('/login', function(req, res) {
     res.render('login');
 });
+
 router.get('/register', function(req, res) {
     res.render('register');
 });
 
 router.get('/forgotmypassword', function(req, res) {
     res.render('forgotmypassword');
+});
+
+router.get('/registered', function(req, res) {
+    res.render('registered');
 });
 
 router.get('/verify', function(req, res) { //needs to be here 
@@ -57,7 +62,6 @@ router.get('/verify', function(req, res) { //needs to be here
         res.redirect('/login');
     }
 });
-
 
 router.use(function(req, res, next) {
     var token = req.body.token || req.query.token || req.headers['x-access-token'];
@@ -133,15 +137,10 @@ router.get('/friends', function(req, res) {
     });
 });
 
-
 router.get('/changepassword', function(req, res) {
     res.render('changepassword', {
         token: req.token
     });
 });
-
-
-
-
 
 module.exports = router;
