@@ -174,3 +174,11 @@ input[type = submit]:hover, button:hover, .button:hover{
 .darkpurple {
 	color: #18121E;
 }
+
+/* ===============
+   Utility Classes
+   =============== */
+
+.justify {
+	text-align: justify;
+}

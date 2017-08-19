@@ -27,6 +27,10 @@ router.get('/registered', function(req, res) {
     res.render('registered');
 });
 
+router.get('/contact', function(req, res) {
+    res.render('contact');
+})
+
 router.get('/verify', function(req, res) { //needs to be here 
     var token = req.body.token || req.query.token || req.headers['x-access-token'];
     if(token) {
