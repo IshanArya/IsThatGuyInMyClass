@@ -46,7 +46,7 @@ studentSchema.methods.findFriends = function (callback) {
                 }
             }
 
-            callback(friends);
+            callback(!(friends[0][0] == undefined), friends);
         }
     });
 };

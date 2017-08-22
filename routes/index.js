@@ -132,10 +132,11 @@ router.get('/update_profile', function(req, res) {
 });
 
 router.get('/friends', function(req, res) {
-    req.student.findFriends(function(friends) {
+    req.student.findFriends(function(doTheyHaveFriends, /* if so: */ friends) {
         res.render("friends", {
             student: req.student,
             token: req.token,
+            theyHaveFriends: doTheyHaveFriends,
             friends: friends
         });
     });

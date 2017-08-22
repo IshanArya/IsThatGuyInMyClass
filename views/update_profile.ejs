@@ -24,26 +24,12 @@
                 var currentClass = student.classes[i];
         %>
             <div class="three columns schedule-select">
-                <label class="small">Period <%= i + 1%></label>
-                <select name="class<%=i%>">
-                    <option value="CAFE" <% if (currentClass === "CAFE") { %> selected="selected" <% } %> >CAFE</option>
-                    <option value="SGYM" <% if (currentClass === "SGYM") { %> selected="selected" <% } %> >SGYM</option>
-                    <option value="BGYM" <% if (currentClass === "BGYM") { %> selected="selected" <% } %> >BGYM</option>
-                    <% for (var j = 0; j < 300; j++) {
-                        var displayNumber = j.toString();
-                        if (j < 10) {
-                            displayNumber = "00" + j;
-                        } else if (j < 100) {
-                            displayNumber = "0" + j;
-                        }
-                        %>
-                    <option value="<%=j%>" <% if (currentClass === j.toString()) { %> selected="selected" <% } %> ><%= displayNumber %></option>
-                    <% } %>
-                </select><br>
+                <label class="small">Period <%= i + 1 %></label>
+                <input class="u-half-width" type="text" name="class<%=i%>" value="<%= currentClass %>" placeholder="Room #"><br>
             </div>
         <% } %>
         </div>
-        <button>Change Schedule</button>
+        <button type="button" onclick="validateScheduleInput();">Change Schedule</button>
     </form>
     <hr class="small">
     <form method="GET" action="/api/changename" id="form_name">
@@ -97,6 +83,25 @@
     for (var i = 0; i < tokens.length; i++) {
         tokens[i].value = sessionStorage.authToken || localStorage.authToken;
     }
+
+    function validateScheduleInput() {
+        var good = true;
+        for (var i = 0; i < 12; i++) {
+            var input = document.getElementsByName("class" + (i))[0].value; 
+            var number = parseInt(input);
+            if (!(input === "CAFE" || input === "SGYM" || input === "BGYM" || (!isNaN(number) && Math.abs(number) < 300))) {
+                good = false;
+                console.log(i);
+                break;
+            }
+        }
+        if (!good) {
+            alert("Please enter Room numbers exactly as shown on your Genesis schedule.");
+        } else {
+            document.forms["form_schedule"].submit();
+        }
+    }
+
 </script>
 
 </body>

@@ -17,7 +17,7 @@
         </div>
     </div>
 <% } else { 
-        if (locals.friends) { %>
+        if (theyHaveFriends) { %>
             <div class="row">
                 <div class="twelve columns">
                     <h4>Friends in <%= student.name %>'s classes:</h4>
@@ -45,14 +45,17 @@
             </div>
         <% } else { %>
             <div class="row">
-                <div class="four columns">
-                    <h4>lol u have no friends in ur classes loser</h4>
+                <div class="five columns">
+                    <h4>No friends found ( yet ).</h4>
+                    <p class="justify">If you want to see your friends' names appear here, get them to sign up on this website! You can spread the word about this website by sharing the link below:</p>
+                    <input type="text" id="shareURL" readonly>
                 </div>
             </div>
         <% }
 } %>
-
 </div>
-
+<script>
+    document.getElementById('shareURL').value = document.location.origin;
+</script>
 </body>
 </html>
