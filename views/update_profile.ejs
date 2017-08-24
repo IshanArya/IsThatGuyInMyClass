@@ -97,7 +97,7 @@
         for (var i = 0; i < 12; i++) {
             var input = document.getElementsByName("class" + (i))[0].value.toUpperCase(); 
             var number = parseInt(input);
-            if (!(input === "CAFE" || input === "SGYM" || input === "BGYM" || input === "AUD" || (!isNaN(number) && Math.abs(number) < 300))) {
+            if (!(input === "CAFE" || input === "SGYM" || input === "BGYM" || input === "AUD" || input === "EAUTO" || (!isNaN(number) && Math.abs(number) < 300))) {
                 good = false;
                 console.log("Period " + (i + 1) + "'s input is incorrect. Please enter room numbers exactly as shown on your Genesis schedule.");
                 notify("Period " + (i + 1) + "'s input is incorrect. Please enter room numbers exactly as shown on your Genesis schedule.");
