@@ -37,13 +37,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.use(function(req, res, next) {
-    if(req.protocol === 'http') {
-        res.redirect("https://" + req.get('host') + req.originalUrl);
-    } else {
-        next();
-    }
-});
+// app.use(function(req, res, next) {
+//     if(req.protocol === 'http') {
+//         res.redirect("https://" + req.get('host') + req.originalUrl);
+//     } else {
+//         next();
+//     }
+// });
 
 
 app.use('/api', api);
