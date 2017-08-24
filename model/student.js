@@ -22,12 +22,14 @@ var studentSchema = new Schema({
 studentSchema.methods.findFriends = function (callback) {
     // this is probably so damn inefficient
     // but this is just verison 1.0 so lmao
+    var hasNames = false;
     var myClasses = this.classes.slice(0);
     this.model('Student').find({
         name: {
             $ne: this.name
         }
     }, function (err, res) {
+        console.log(res);
         if (err) {
             callback(null); // idk why this would happen
         } else {
@@ -39,14 +41,15 @@ studentSchema.methods.findFriends = function (callback) {
             for (var i = 0; i < res.length; i++) {
                 for (var j = 0; j < 12; j++) {
                     if (res[i].classes.length > 0) {
-                        if (res[i].classes[j] == myClasses[j]) {
+                        if (res[i].classes[j].toUpperCase() == myClasses[j].toUpperCase()) {
                             friends[j].push(res[i].name);
+                            hasNames = true;
                         }
                     }
                 }
             }
 
-            callback(!(friends[0][0] == undefined), friends);
+            callback(hasNames, friends);
         }
     });
 };
