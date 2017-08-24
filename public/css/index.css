@@ -1,0 +1,25 @@
+html, body {
+	height: 100%;
+}
+
+.home {
+	text-align: center;
+	font-family: "Open Sans";
+	height: 100%;
+}
+
+@media (min-width: 768px) {
+	.logo {
+		width: 300px;
+		height: 300px;
+		margin-top: 25px;
+	}
+}
+
+#main_image {
+	height: 10%;
+}
+
+p {
+	font-size: 18px;
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include partials/style %>
+    <link rel="stylesheet" href="/css/update_profile.css">
+</head>
+
+<body>
+<% include partials/main_nav %>
+
+<div class="container home">
+    <h1>Account Settings</h1>
+    <hr>
+    <form method="POST" action="/api/changeschedule" id="form_schedule">
+        <input type="hidden" name="token" class="token" value="">
+        <div class="row">
+            <div class="four columns">
+                <label>Schedule Change</label>
+            </div>
+        </div>
+        <div class="row">
+        <% 
+            for (var i = 0; i < 12; i++) { 
+                var currentClass = student.classes[i];
+        %>
+            <div class="three columns schedule-select">
+                <label class="small">Period <%= i + 1 %></label>
+                <input class="u-half-width" type="text" name="class<%=i%>" value="<%= currentClass %>" placeholder="Room #"><br>
+            </div>
+        <% } %>
+        </div>
+        <button type="button" onclick="validateScheduleInput();">Change Schedule</button>
+    </form>
+    <hr class="small">
+    <form method="GET" action="/api/changename" id="form_name">
+        <input type="hidden" name="token" class="token" value="">
+        <div class="row">
+            <div class="six columns">
+                <label>Name Change</label>
+                <input type="text" name="name" placeholder="New name" value="<%= student.name %>">
+            </div>
+        </div>
+        <div class="row">
+            <div class="six columns">
+                <button>Change name</button>
+            </div>
+        </div>
+    </form>
+    <hr class="small">
+    <form method="GET" action="/api/changeemail" id="form_email">
+        <input type="hidden" name="token" class="token" value="">
+        <div class="row">
+            <div class="six columns">
+                <label>Email Change</label>
+                <input type="email" name="email" placeholder="New email" value="<%= student.email %>">
+            </div>
+        </div>
+        <button>Change email</button>
+    </form>
+    <hr class="small">
+    <form method="POST" action="/api/changepassword" id="form_password">
+        <input type="hidden" name="token" class="token" value="">
+        <div class="row">
+            <div class="four columns">
+                <label>Password Change</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="six columns passfield">
+                <input type="password" id="password1" class="" name="password" placeholder="New password">
+            </div>
+        </div>
+        <div class="row">
+            <div class="six columns">
+                <input type="password" id="password2" class="" placeholder="Confirm password">
+            </div>
+        </div>
+        <button>Change password</button>
+    </form>
+</div>
+<script type="text/javascript">
+    var tokens = document.getElementsByClassName('token');
+    for (var i = 0; i < tokens.length; i++) {
+        tokens[i].value = sessionStorage.authToken || localStorage.authToken;
+    }
+
+    function validateScheduleInput() {
+        var good = true;
+        for (var i = 0; i < 12; i++) {
+            var input = document.getElementsByName("class" + (i))[0].value; 
+            var number = parseInt(input);
+            if (!(input === "CAFE" || input === "SGYM" || input === "BGYM" || (!isNaN(number) && Math.abs(number) < 300))) {
+                good = false;
+                console.log(i);
+                break;
+            }
+        }
+        if (!good) {
+            alert("Please enter Room numbers exactly as shown on your Genesis schedule.");
+        } else {
+            document.forms["form_schedule"].submit();
+        }
+    }
+
+</script>
+
+</body>
+</html>

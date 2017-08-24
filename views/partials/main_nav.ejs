@@ -1,0 +1,17 @@
+<div class="navbar-spacer"></div>
+<nav class="navbar">
+    <div class="container" id="nav_container">
+        <img src="/imgs/logo/logo_transparent.png" id="logo">
+        <ul class="navbar-list">
+            <li class="navbar-item"><a class="navbar-link" href="/">Home</a></li>
+            <% if (locals.token) { %>
+                <li class="navbar-item"><a href="/schedule?token=<%= token %>" class="navbar-link">Schedule</a></li>
+                <li class="navbar-item"><a href="/update_profile?token=<%= token %>" class="navbar-link">Profile</a></li>
+            <% } else { %>
+                <li class="navbar-item"><a class="navbar-link" href="/register">Register</a></li>
+                <li class="navbar-item"><a class="navbar-link" href="/login">Login</a></li>
+            <% } %>
+            <li class="navbar-item"><a class="navbar-link" href="/contact">Help</a></li>
+        </ul>
+    </div>
+</nav>
