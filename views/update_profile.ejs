@@ -3,12 +3,14 @@
 <head>
     <% include partials/style %>
     <link rel="stylesheet" href="/css/update_profile.css">
+    <% include partials/scripts %>
 </head>
 
 <body>
 <% include partials/main_nav %>
 
 <div class="container home">
+    <% include partials/notify %>
     <h1>Account Settings</h1>
     <hr>
     <form method="POST" action="/api/changeschedule" id="form_schedule">
@@ -87,17 +89,16 @@
     function validateScheduleInput() {
         var good = true;
         for (var i = 0; i < 12; i++) {
-            var input = document.getElementsByName("class" + (i))[0].value; 
+            var input = document.getElementsByName("class" + (i))[0].value.toUpperCase(); 
             var number = parseInt(input);
             if (!(input === "CAFE" || input === "SGYM" || input === "BGYM" || (!isNaN(number) && Math.abs(number) < 300))) {
                 good = false;
-                console.log(i);
+                console.log("Period " + i + "'s input is incorrect. Please enter room numbers exactly as shown on your Genesis schedule.");
+                notify("Period " + i + "'s input is incorrect. Please enter room numbers exactly as shown on your Genesis schedule.");
                 break;
             }
         }
-        if (!good) {
-            alert("Please enter Room numbers exactly as shown on your Genesis schedule.");
-        } else {
+        if (good) {
             document.forms["form_schedule"].submit();
         }
     }
