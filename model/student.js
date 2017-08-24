@@ -29,7 +29,7 @@ studentSchema.methods.findFriends = function (callback) {
             $ne: this.name
         }
     }, function (err, res) {
-        console.log(res);
+        //console.log(res);
         if (err) {
             callback(null); // idk why this would happen
         } else {
