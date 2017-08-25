@@ -113,6 +113,32 @@ hr.small {
 	margin-bottom: 10px;
 }
 
+.button-link {
+	display: inline-block;
+	height: 24px;
+	padding: 0 10px;
+	color: rgb(11, 182, 52);
+	text-align: center;
+	font-size: 11px;
+	font-weight: 600;
+	line-height: 24px;
+	letter-spacing: .1rem;
+	text-transform: uppercase;
+	text-decoration: none;
+	white-space: nowrap;
+	background-color: transparent;
+	border-radius: 4px;
+	border: 1px solid rgb(11, 182, 52);
+	cursor: pointer;
+	box-sizing: border-box;
+}
+
+.button-link:hover,
+.button-link:focus {
+	transform: scale(1.2, 1.2);
+}
+
+
  /* ============
 	INPUT COLORS
 	============ */
@@ -185,4 +211,8 @@ input[type = submit]:hover, button:hover, .button:hover{
 
 .text-center {
 	text-align: center;
+}
+
+.text-left {
+	text-align: left;
 }

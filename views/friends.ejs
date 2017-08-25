@@ -7,7 +7,7 @@
 
 <% include partials/main_nav %>
 
-<div class="container">
+<div class="container friends">
 <br><br>
 <% if (student.classes.length == 0) { %>
     <div class="row">
@@ -28,7 +28,7 @@
                     <table class="u-full-width">
                         <thead>
                             <th>Period</th>
-                            <th>Room #</th>
+                            <th>Room</th>
                             <th>Friends</th>
                         </thead>
                         <tbody>
@@ -53,6 +53,7 @@
             </div>
         <% }
 } %>
+    <% include partials/footer %>
 </div>
 <script>
     document.getElementById('shareURL').value = document.location.origin;
