@@ -35,6 +35,9 @@
   margin: 0 auto;
   padding: 20px;
   box-sizing: border-box; }
+.container.friends {
+  max-width: 1000px;
+}
 .column,
 .columns {
   width: 100%;
@@ -843,7 +846,7 @@ table {
 
 td,
 th {
-  padding: 0;
+  padding: 5px;
 }
 
 /* @media (max-width: 750px) {

@@ -85,6 +85,7 @@
         </div>
         <button>Change password</button>
     </form>
+    <% include partials/footer %>
 </div>
 <script type="text/javascript">
     var tokens = document.getElementsByClassName('token');
@@ -95,9 +96,9 @@
     function validateScheduleInput() {
         var good = true;
         for (var i = 0; i < 12; i++) {
-            var input = document.getElementsByName("class" + (i))[0].value.toUpperCase(); 
+            var input = document.getElementsByName("class" + (i))[0].value.toUpperCase().trim();
             var number = parseInt(input);
-            if (!(input === "CAFE" || input === "SGYM" || input === "BGYM" || input === "AUD" || input === "EAUTO" || (!isNaN(number) && Math.abs(number) < 300))) {
+            if (!(input === "CAFE" || input === "SGYM" || input === "BGYM" || input === "AUD" || input === "EAUTO" || input === "CAF2" || (!isNaN(number) && Math.abs(number) < 300))) {
                 good = false;
                 console.log("Period " + (i + 1) + "'s input is incorrect. Please enter room numbers exactly as shown on your Genesis schedule.");
                 notify("Period " + (i + 1) + "'s input is incorrect. Please enter room numbers exactly as shown on your Genesis schedule. If this problem persists, please contact us at the Help page linked at the top.");

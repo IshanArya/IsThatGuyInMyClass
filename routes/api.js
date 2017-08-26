@@ -176,9 +176,15 @@ router.use(function(req, res, next) {
 					} else {
 						if(student) {
 							console.log(student.verified);
-							req.student = student;
-							req.token = token;
-							next();
+							if(student.verified) {
+								req.student = student;
+								req.token = token;
+								next();
+							} else {
+								res.render('unverified', {
+									student: student
+								});
+							}
 						} else {
 							res.render('emailwaschanged');
 						}
