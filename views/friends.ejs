@@ -36,7 +36,9 @@
                             <tr>
                                 <td><%= i + 1 %></td>
                                 <td><%= student.classes[i] %></td>
-                                <td><%= friends[i].join(', '); %></td>
+                                <td><% for (var j = 0; j < friends[i].length; j++) { %>
+                                    <a href="/view_student?token=<%= token %>&id=<%= friends[i][j].id %>"><%= friends[i][j].name %>,</a> 
+                                <% } %></td>
                             </tr>
                             <% } %>
                         </tbody>

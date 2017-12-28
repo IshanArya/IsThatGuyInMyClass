@@ -131,6 +131,15 @@ router.get('/update_profile', function(req, res) {
     });
 });
 
+router.get('/view_student', function(req, res) {
+    Student.findById(req.query.id, function(err, queriedStudent) {
+        res.render('view_student', {
+            student: queriedStudent,
+            token: req.token
+        });
+    });
+});
+
 router.get('/friends', function(req, res) {
     req.student.findFriends(function(doTheyHaveFriends, /* if so: */ friends) {
         res.render("friends", {

@@ -42,7 +42,10 @@ studentSchema.methods.findFriends = function (callback) {
                 for (var j = 0; j < 12; j++) {
                     if (res[i].classes.length > 0) {
                         if (res[i].classes[j].toUpperCase() == myClasses[j].toUpperCase()) {
-                            friends[j].push(res[i].name);
+                            friends[j].push({
+                                name: res[i].name,
+                                id: res[i].id
+                            });
                             hasNames = true;
                         }
                     }

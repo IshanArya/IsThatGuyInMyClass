@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include partials/style.ejs %>
+</head>
+<body>
+
+<% include partials/main_nav %>
+
+<div class="container">
+<br><br>
+    <div class="row">
+        <div class="four columns">
+            <h3 ><%= student.name %></h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="four columns">
+            <h3 ><%= student.email %></h3>
+        </div>
+    </div>
+    <% include partials/footer %>
+</div>
+
+</body>
+</html>
