@@ -93,7 +93,7 @@ router.post('/register', function(req, res) {
 });
 
 router.get('/forgotpassword', function(req, res) {
-	var email = req.body.email;
+	var email = req.body.email || req.query.email;
 	Student.findOne({
 		email: email
 	}, function(err, user) {
@@ -175,7 +175,6 @@ router.use(function(req, res, next) {
 						res.redirect('/login');
 					} else {
 						if(student) {
-							console.log(student.verified);
 							if(student.verified) {
 								req.student = student;
 								req.token = token;
@@ -238,7 +237,7 @@ router.get('/changename', function(req, res) {
 router.post('/changepassword', function(req, res) {
 	var student = req.student;
 	var newPassword = req.body.password || req.query.password;
-
+	console.log(newPassword);
 	student.password = newPassword;
 	student.save(function(err) {
 		if (err) {

@@ -11,7 +11,7 @@ var config = require('./config');
 // nconf.file('config.json');
 
 var mongoose = require('mongoose');
-var db = mongoose.connect(config.mongodb.database, {
+var db = mongoose.connect(config.mongodb.prod, {
     useMongoClient: true
 });
 // var db = mongoose.connect('mongodb://' + nconf.get('db:username') + ':' + nconf.get('db:password') + '@localhost/local');

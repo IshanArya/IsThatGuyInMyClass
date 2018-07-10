@@ -7,7 +7,7 @@ $(function() {
 				if ($('#name').val().split(" ").length > 1) {
 					$.post("/api/register", {
 						email: $('#email').val().trim(),
-						password: $('#password1').val(),
+						password: forge_sha256($('#password1').val()),
 						name: $('#name').val().trim()
 					}, function(data) {
 						if(data.success) {

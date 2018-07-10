@@ -5,7 +5,7 @@ $(function() {
 			console.log("post");
 			$.post("/api/authenticate", {
 				email: $('#email').val().trim(),
-				password: $('#password').val()
+				password: forge_sha256($('#password').val())
 			}, function(data) {
 				if(data.success) {
 					if($('#remember').is(":checked")) {
@@ -28,6 +28,5 @@ $(function() {
 		} else {
 			notify("Please fill out all fields.");
 		}
-		
 	});
 });
