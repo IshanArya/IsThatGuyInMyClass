@@ -7,3 +7,4 @@ data/
 # Mac files
 *.DS_Store
 
+migrate-database.js

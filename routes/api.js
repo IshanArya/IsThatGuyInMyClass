@@ -24,7 +24,7 @@ var sendEmail = {
 				console.error(err);
 			}
 
-			console.log("Message sent: ", info.messageId, info.response);
+			// console.log("Message sent: ", info.messageId, info.response);
 		});
 	},
 	password_recovery: function(email, link) {
@@ -39,7 +39,7 @@ var sendEmail = {
 				console.error(err);
 			}
 
-			console.log("Message sent: ", info.messageId, info.response);
+			// console.log("Message sent: ", info.messageId, info.response);
 		});
 	}
 }
